@@ -322,12 +322,17 @@ header {
     overflow: hidden;
     margin: 0 auto 15px;
     background-color: #f0f0f0;
+    position: relative;
 }
 
 .speaker-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .speaker-card h3 {
@@ -352,6 +357,26 @@ header {
 .speaker-card.panel {
     background-color: rgba(50, 182, 122, 0.1);
 }
+
+/* Responzivní design */
+@media (max-width: 768px) {
+    .speakers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .speaker-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .speakers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* Responzivní design */
 @media (max-width: 768px) {
