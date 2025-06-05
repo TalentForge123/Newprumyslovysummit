@@ -289,54 +289,89 @@ header {
 }
 
 /* Speakers Section */
+.speakers {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
 .speakers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 30px;
+    margin-top: 40px;
 }
 
 .speaker-card {
     background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .speaker-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .speaker-image {
-    height: 250px;
-    background-color: var(--gray-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    background-color: #f0f0f0;
 }
 
-.placeholder::after {
-    content: 'Foto řečníka';
-    color: #999;
+.speaker-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .speaker-card h3 {
-    padding: 15px 15px 5px;
+    margin: 10px 0 5px;
     font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .speaker-card p {
-    padding: 0 15px 15px;
-    color: #666;
+    margin: 5px 0;
     font-size: 0.9rem;
+    color: #666;
 }
 
-.more-speakers {
-    text-align: center;
-    margin-top: 40px;
+.speaker-topic {
     font-style: italic;
+    color: var(--primary-color, #32b67a);
+    font-size: 0.85rem;
+    margin-top: 5px;
 }
+
+.speaker-card.panel {
+    background-color: rgba(50, 182, 122, 0.1);
+}
+
+/* Responzivní design */
+@media (max-width: 768px) {
+    .speakers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .speaker-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .speakers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* Program Section */
 .program {
