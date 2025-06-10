@@ -72,19 +72,18 @@ section {
     padding: 80px 0;
 }
 
-/* Navigation */
 header {
+    background-c/* Header and Navigation */
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.main-nav {
-    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav-wrapper {
@@ -94,38 +93,39 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 900;
     color: var(--secondary-color);
 }
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 30px;
 }
 
-.nav-item {
+.nav-links a {
     color: var(--secondary-color);
     font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: var(--transition);
+    transition: color 0.3s ease;
+    text-decoration: none;
 }
 
-.nav-item:hover {
+.nav-links a:hover {
     color: var(--primary-color);
 }
 
-.register-btn {
+.nav-item.register-btn {
     background-color: var(--primary-color);
-    color: var(--light-text);
-    padding: 8px 16px;
-    border-radius: 4px;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.register-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--light-text);
+.nav-item.register-btn:hover {
+    background-color: #28a76b;
+    color: #fff !important;
 }
 
 .menu-toggle {
@@ -135,13 +135,12 @@ header {
 }
 
 .menu-toggle span {
-    width: 25px;
     height: 3px;
+    width: 25px;
     background-color: var(--secondary-color);
-    margin: 2px 0;
-    transition: var(--transition);
+    margin-bottom: 4px;
+    border-radius: 5px;
 }
-
 /* Hero Section */
 .hero {
     background-color: var(--dark-bg);
