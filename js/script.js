@@ -1,128 +1,99 @@
 // Countdown Timer
+function updateCountdown() {
+    // Datum konání summitu: 14. 11. 2025
+    const eventDate = new Date('2025-11-14T09:00:00').getTime();
+    const now = new Date().getTime();
+    const timeLeft = eventDate - now;
+
+    if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Aktualizace HTML elementů
+        document.getElementById('days').textContent = days.toString().padStart(3, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        // Pokud je datum v minulosti, zobrazit nuly
+        document.getElementById('days').textContent = '000';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+    }
+}
+
+// Spustit countdown při načtení stránky
 document.addEventListener('DOMContentLoaded', function() {
-    // Set the date we're counting down to
-    const summitDate = new Date("Nov 14, 2025 09:00:00").getTime();
-    
-    // Update the countdown every 1 second
-    const countdownTimer = setInterval(function() {
-        // Get today's date and time
-        const now = new Date().getTime();
-        
-        // Find the distance between now and the summit date
-        const distance = summitDate - now;
-        
-        // Time calculations for days, hours, minutes and seconds
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Display the result
-        document.getElementById("days").innerHTML = days.toString().padStart(3, '0');
-        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
-        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
-        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-        
-        // If the countdown is finished, display message
-        if (distance < 0) {
-            clearInterval(countdownTimer);
-            document.getElementById("days").innerHTML = "000";
-            document.getElementById("hours").innerHTML = "00";
-            document.getElementById("minutes").innerHTML = "00";
-            document.getElementById("seconds").innerHTML = "00";
-        }
-    }, 1000);
-    
-    // Program tabs
-    const tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remove active class from all tabs
-            tabs.forEach(t => t.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            
-            // Hide all content
-            const contents = document.querySelectorAll('.program-content');
-            contents.forEach(content => {
-                content.style.display = 'none';
-            });
-            
-            // Show content for active tab
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).style.display = 'block';
-        });
-    });
-    
-    // FAQ accordion
-    const faqItems = document.querySelectorAll('.faq-question');
-    faqItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const parent = this.parentElement;
-            parent.classList.toggle('active');
-        });
-    });
-    
-    // Mobile menu toggle
+    updateCountdown();
+    // Aktualizovat každou sekundu
+    setInterval(updateCountdown, 1000);
+});
+
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('show');
-            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         });
     }
+});
+
+// Smooth scrolling for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('a[href^="#"]');
     
-    // Form submission (placeholder - would need backend integration)
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+
+// Form validation and submission
+document.addEventListener('DOMContentLoaded', function() {
     const registrationForm = document.getElementById('registration-form');
+    
     if (registrationForm) {
         registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Děkujeme za registraci! Brzy vás budeme kontaktovat s dalšími informacemi.');
-            this.reset();
-        });
-    }
-    
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Děkujeme za vaši zprávu! Odpovíme vám co nejdříve.');
-            this.reset();
-        });
-    }
-});
-
-// Sticky header
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 0);
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80, // Adjust for header height
-                behavior: 'smooth'
+            
+            // Základní validace
+            const requiredFields = this.querySelectorAll('input[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
             });
             
-            // Close mobile menu if open
-            const navLinks = document.querySelector('.nav-links');
-            const menuToggle = document.querySelector('.menu-toggle');
-            if (navLinks && navLinks.classList.contains('show')) {
-                navLinks.classList.remove('show');
-                menuToggle.classList.remove('active');
+            if (isValid) {
+                // Zde by byla implementace odeslání formuláře
+                alert('Děkujeme za registraci! Brzy vás budeme kontaktovat s dalšími informacemi.');
+                this.reset();
+            } else {
+                alert('Prosím vyplňte všechna povinná pole.');
             }
-        }
-    });
+        });
+    }
 });
+
