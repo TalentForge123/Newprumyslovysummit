@@ -825,17 +825,59 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
-    section {
+@media (max-width: 968px) {
+    .registration-content {
+        grid-template-columns: 1fr; /* Stack VIP card and form vertically */
+        gap: 30px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr; /* Stack form fields vertically */
+        gap: 15px;
+    }
+    
+    .additional-info .info-cards {
+        grid-template-columns: 1fr; /* Stack info cards vertically */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .registration-section {
         padding: 60px 0;
     }
     
-    .countdown-container {
-        flex-wrap: wrap;
+    .vip-pass-card,
+    .registration-form-container,
+    .additional-info {
+        padding: 30px 25px;
     }
     
-    .countdown-item {
-        min-width: 80px;
-        margin-bottom: 10px;
+    .info-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
+
+@media (max-width: 480px) {
+    .registration-section .container {
+        padding: 0 15px;
+    }
+    
+    .vip-pass-card,
+    .registration-form-container,
+    .additional-info {
+        padding: 25px 20px;
+    }
+    
+    .pass-header h3 {
+        font-size: 1.6rem;
+    }
+    
+    .form-header h3 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
