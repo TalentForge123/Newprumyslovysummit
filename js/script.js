@@ -83,9 +83,39 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             field.addEventListener('input', function() {
-                if (field.classList.contains('field-invalid')) {
-                    validateField(field, errorElement);
-                }
+            fetch('https://app.smartemailing.cz/api/v2/import', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ljynrlytol59itjsuq9faepexhkaiuqkenwvi4zg'
+    },
+    body: JSON.stringify({
+        data: [{
+            emailaddress: registrationData.email,
+            name: registrationData.firstName,
+            surname: registrationData.lastName,
+            cellphone: registrationData.phone,
+            company: registrationData.company,
+            customfields: {
+                position: registrationData.position,
+                participation_type: registrationData.participationType,
+                interests: registrationData.interests.join(', ')
+            }
+        }]
+    })
+})
+.then(response => response.json())
+.then(data => {
+    if (loading) loading.style.display = 'none';
+    if (successMessage) successMessage.style.display = 'block';
+    if (successMessage) {
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+    // Handle error state
+});
             });
         }
     });
