@@ -778,3 +778,23 @@ footer {
         margin-bottom: 10px;
     }
 }
+/* Změna barvy textu pro popisky (labels) */
+.form-group label,
+.checkbox-item label,
+.gdpr-consent label {
+    color: #333333; /* Tmavě šedá až černá barva */
+}
+
+/* Změna barvy textu pro vstupní pole (input, select, textarea) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    color: #333333; /* Tmavě šedá až černá barva */
+}
+
+/* Změna barvy textu pro nadpisy v checkbox skupině */
+.checkbox-group h3 {
+    color: #333333; /* Tmavě šedá až černá barva */
+}
