@@ -61,34 +61,151 @@ document.querySelectorAll(\'a[href^="#"]\').forEach(anchor => {
     });
 });
 
-// Form validation and submission
+// Registration form functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const registrationForm = document.getElementById('registration-form');
+    const form = document.getElementById('registrationForm');
+    if (!form) return; // Exit if form doesn't exist
+
+    const submitBtn = document.getElementById('submitBtn');
+    const loading = document.getElementById('loading');
+    const successMessage = document.getElementById('successMessage');
+
+    // Real-time validation
+    const fields = ['firstName', 'lastName', 'email', 'company', 'position', 'participationType'];
     
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Základní validace
-            const requiredFields = this.querySelectorAll('input[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.style.borderColor = '#e74c3c';
-                } else {
-                    field.style.borderColor = '#ddd';
+    fields.forEach(fieldName => {
+        const field = document.getElementById(fieldName);
+        const errorElement = document.getElementById(fieldName + 'Error');
+        
+        if (field && errorElement) {
+            field.addEventListener('blur', function() {
+                validateField(field, errorElement);
+            });
+
+            field.addEventListener('input', function() {
+                if (field.classList.contains('field-invalid')) {
+                    validateField(field, errorElement);
                 }
             });
+        }
+    });
+
+    // Email validation
+    const emailField = document.getElementById('email');
+    if (emailField) {
+        emailField.addEventListener('input', function() {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const errorElement = document.getElementById('emailError');
             
-            if (isValid) {
-                // Zde by byla implementace odeslání formuláře
-                alert('Děkujeme za registraci! Brzy vás budeme kontaktovat s dalšími informacemi.');
-                this.reset();
-            } else {
-                alert('Prosím vyplňte všechna povinná pole.');
+            if (email && !emailRegex.test(email)) {
+                this.classList.add('field-invalid');
+                this.classList.remove('field-valid');
+                if (errorElement) {
+                    errorElement.style.display = 'block';
+                    errorElement.textContent = 'Prosím zadejte platnou e-mailovou adresu';
+                }
+            } else if (email) {
+                this.classList.add('field-valid');
+                this.classList.remove('field-invalid');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
             }
+        });
+    }
+
+    function validateField(field, errorElement) {
+        if (field.hasAttribute('required') && !field.value.trim()) {
+            field.classList.add('field-invalid');
+            field.classList.remove('field-valid');
+            if (errorElement) errorElement.style.display = 'block';
+            return false;
+        } else if (field.value.trim()) {
+            field.classList.add('field-valid');
+            field.classList.remove('field-invalid');
+            if (errorElement) errorElement.style.display = 'none';
+            return true;
+        }
+        return true;
+    }
+
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        
+        // Validate all required fields
+        fields.forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            const errorElement = document.getElementById(fieldName + 'Error');
+            if (field && errorElement && !validateField(field, errorElement)) {
+                isValid = false;
+            }
+        });
+
+        // Validate GDPR consent
+        const gdprConsent = document.getElementById('gdprConsent');
+        const gdprError = document.getElementById('gdprError');
+        if (gdprConsent && !gdprConsent.checked) {
+            if (gdprError) gdprError.style.display = 'block';
+            isValid = false;
+        } else if (gdprError) {
+            gdprError.style.display = 'none';
+        }
+
+        if (isValid) {
+            // Show loading state
+            if (submitBtn) submitBtn.disabled = true;
+            if (loading) loading.style.display = 'block';
+            form.style.display = 'none';
+
+            // Collect form data
+            const formData = new FormData(form);
+            const interests = [];
+            document.querySelectorAll('input[name="interests"]:checked').forEach(cb => {
+                interests.push(cb.value);
+            });
+            
+            const registrationData = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                company: formData.get('company'),
+                position: formData.get('position'),
+                participationType: formData.get('participationType'),
+                interests: interests,
+                gdprConsent: formData.get('gdprConsent')
+            };
+
+            // Here you would typically send data to SmartEmailing API
+            // For now, we'll simulate the submission
+            setTimeout(() => {
+                if (loading) loading.style.display = 'none';
+                if (successMessage) successMessage.style.display = 'block';
+                
+                console.log('Registration data:', registrationData);
+                
+                // Scroll to success message
+                if (successMessage) {
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 2000);
+        }
+    });
+
+    // Smooth scrolling for better UX
+    const inputs = document.querySelectorAll('#registrationForm input, #registrationForm select, #registrationForm textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            setTimeout(() => {
+                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        });
+    });
+});
         });
     }
 });
