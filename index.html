@@ -1198,366 +1198,116 @@ function downloadPartnershipOffer() {
   <!-- Registration Section -->
 <section id="register" class="registration-section">
     <div class="container">
-        <h2>REGISTRACE</h2>
-        <div class="registration-intro">
-            <h3>Připojte se k lídrům českého průmyslu</h3>
-            <p>Získejte přístup k exkluzivnímu obsahu, networkingu a praktickým poznatkům od předních odborníků v oboru.</p>
-        </div>
-
-        <div class="registration-content">
-            <!-- VIP Pass Card -->
-            <div class="vip-pass-card">
-                <div class="pass-header">
-                    <div class="pass-badge">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L15.09 8.26L22 9L16 14.74L17.18 21.02L12 18.77L6.82 21.02L8 14.74L2 9L8.91 8.26L12 2Z" fill="currentColor"/>
-                        </svg>
-                        VIP PASS
-                    </div>
-                    <h3>Průmyslový Summit 2025</h3>
-                </div>
-
-                <div class="pass-benefits">
-                    <h4>Co získáte:</h4>
-                    <ul class="benefits-list">
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                            Přístup ke všem přednáškám a panelovým diskuzím
-
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                             Networking s lídry průmyslu během přestávek a business obědu
-
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                            Přístup k nahrávkám všech sezení po skončení
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                            Záznamy z přednášek a panelů ke zpětnému zhlédnutí po skončení akce
-
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                            Soubor exkluzivních prezentací a podkladů od vystupujících
-
-                        </li>
-                        <li>
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                             Celodenní občerstvení včetně "business obědu" v oddělené VIP zóně
-
-                        </li>
-                    </ul>
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                             Oficiální potvrzení o účasti – vhodné i pro profesní rozvoj (např. interní HR evidence)
-                         </li>
-                    </ul>
-                </div>
-
-                <div class="pass-price">
-                    <div class="price-info">
-                        <span class="price-label">Cena vstupenky:</span>
-                        <span class="price-amount">7900 Czk</span>
-                    </div>
-                    <p class="price-note"> Platbu zpracovává partner pro vstupenkový systém.</p>
-                </div>
+        <div class="registration-container">
+            <div class="registration-header">
+                <h2>Registrace na Průmyslový Summit 2025</h2>
+                <p>Staňte se součástí největší průmyslové události roku</p>
             </div>
 
-            <!-- Registration Form -->
-            <div class="registration-form-container">
-                <div class="form-header">
-                    <h3>Registrační formulář</h3>
-                    <p>Vyplňte formulář a budeme vás kontaktovat s dalšími informacemi o platbě.</p>
-                </div>
+            <div class="success-message" id="successMessage" style="display: none;">
+                <strong>Děkujeme za registraci!</strong> Vaše přihláška byla úspěšně odeslána. Brzy vás budeme kontaktovat s dalšími informacemi.
+            </div>
 
-                <form id="registrationForm" class="registration-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">Jméno *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Příjmení *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
+            <form id="registrationForm" class="registration-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="firstName">Křestní jméno <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <div class="error-message" id="firstNameError">Prosím zadejte křestní jméno</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">E-mailová adresa *</label>
+                        <label for="lastName">Příjmení <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <div class="error-message" id="lastNameError">Prosím zadejte příjmení</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mailová adresa <span class="required">*</span></label>
                         <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError">Prosím zadejte platnou e-mailovou adresu</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Telefon</label>
+                        <label for="phone">Mobilní telefon</label>
                         <input type="tel" id="phone" name="phone">
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company">Společnost *</label>
-                            <input type="text" id="company" name="company" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="position">Pozice *</label>
-                            <input type="text" id="position" name="position" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="company">Společnost <span class="required">*</span></label>
+                        <input type="text" id="company" name="company" required>
+                        <div class="error-message" id="companyError">Prosím zadejte název společnosti</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="industry">Odvětví</label>
-                        <select id="industry" name="industry">
-                            <option value="">Vyberte odvětví</option>
-                            <option value="automotive">Automotive</option>
-                            <option value="energy">Energetika</option>
-                            <option value="manufacturing">Výroba a strojírenství</option>
-                            <option value="it">IT a digitální služby</option>
-                            <option value="logistics">Logistika</option>
-                            <option value="other">Jiné</option>
+                        <label for="position">Pracovní pozice <span class="required">*</span></label>
+                        <input type="text" id="position" name="position" required>
+                        <div class="error-message" id="positionError">Prosím zadejte pracovní pozici</div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="participationType">Typ účasti <span class="required">*</span></label>
+                        <select id="participationType" name="participationType" required>
+                            <option value="">Vyberte typ účasti</option>
+                            <option value="participant">Účastník</option>
+                            <option value="partner">Partner</option>
+                            <option value="speaker">Řečník</option>
+                            <option value="media">Média</option>
                         </select>
+                        <div class="error-message" id="participationTypeError">Prosím vyberte typ účasti</div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="interests">Jaká témata vás nejvíce zajímají? (volitelné)</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="digital-transformation">
-                                <span class="checkmark"></span>
-                                Digitální transformace
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="esg">
-                                <span class="checkmark"></span>
-                                ESG a udržitelnost
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="energy">
-                                <span class="checkmark"></span>
-                                Nová energetika
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="automation">
-                                <span class="checkmark"></span>
-                                Automatizace
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="hr">
-                                <span class="checkmark"></span>
-                                HR a talent
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="interests" value="export">
-                                <span class="checkmark"></span>
-                                Globální export
-                            </label>
+                <div class="checkbox-group">
+                    <h3>Oblasti zájmu (vyberte všechny relevantní)</h3>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ai" name="interests" value="ai">
+                            <label for="ai">Umělá inteligence v průmyslu</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="factories" name="interests" value="factories">
+                            <label for="factories">Továrny budoucnosti</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="automotive" name="interests" value="automotive">
+                            <label for="automotive">Automotive a automatizace</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="business" name="interests" value="business">
+                            <label for="business">Nové obchodní modely</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="esg" name="interests" value="esg">
+                            <label for="esg">ESG strategie</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="digitalization" name="interests" value="digitalization">
+                            <label for="digitalization">Digitalizace a průmysl 4.0</label>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="message">Zpráva (volitelné)</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Máte nějaké specifické otázky nebo požadavky?"></textarea>
-                    </div>
+                <div class="gdpr-consent">
+                    <label>
+                        <input type="checkbox" id="gdprConsent" name="gdprConsent" required>
+                        Souhlasím se zpracováním osobních údajů pro účely registrace na Průmyslový Summit 2025 a zasílání souvisejících informací. Více informací o zpracování osobních údajů najdete v našich <a href="#" target="_blank">zásadách ochrany osobních údajů</a>.
+                    </label>
+                    <div class="error-message" id="gdprError">Prosím potvrďte souhlas se zpracováním osobních údajů</div>
+                </div>
 
-                    <div class="form-group checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="newsletter" value="yes">
-                            <span class="checkmark"></span>
-                            Chci dostávat novinky o průmyslu a dalších akcích
-                        </label>
-                    </div>
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Registrovat se na summit
+                </button>
 
-                    <div class="form-group checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="privacy" value="yes" required>
-                            <span class="checkmark"></span>
-                            Souhlasím se zpracováním osobních údajů *
-                        </label>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        Registrovat se na summit
-                    </button>
-                </form>
-            </div>
+                <div class="loading" id="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Odesíláme vaši registraci...</p>
+                </div>
+            </form>
         </div>
-
-      
+    </div>
 </section>
-
-<!-- CSS pro registrační sekci -->
-<style>
-.registration-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-}
-
-.registration-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.registration-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.registration-intro {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.registration-intro h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-.registration-intro p {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.registration-content {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.vip-pass-card {
-    background: linear-gradient(135deg, #32b67a, #28a745);
-    color: white;
-    border-radius: 16px;
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-}
-
-.vip-pass-card::before {
-    content: ";
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-.pass-header {
-    margin-bottom: 30px;
-}
-
-.pass-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.pass-header h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.pass-subtitle {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-.pass-benefits h4 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.benefits-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.benefits-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 12px;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.benefits-list svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.pass-price {
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.price-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.price-label {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.price-amount {
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.price-note {
-    font-size: 0.9rem;
-    op
-(Content truncated due to size limit. Use line ranges to read in chunks)
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
