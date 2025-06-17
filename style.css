@@ -814,9 +814,10 @@ textarea:-webkit-autofill:active  {
 }
 /* CSS změny pro tmavé pozadí registračních polí */
 
-.register input[type="text"],
-.register input[type="email"],
-.register input[type="tel"] {
+/* SPRÁVNÝ CSS KÓD - OPRAVA TŘÍDY SEKCE */
+.registration-section input[type="text"],
+.registration-section input[type="email"],
+.registration-section input[type="tel"] {
     background-color: rgba(255, 255, 255, 0.1) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     color: var(--light-text) !important;
