@@ -812,3 +812,39 @@ textarea:-webkit-autofill:active  {
     /* Pro jistotu ještě barva rámečku */
     border: 1px solid #555555 !important;
 }
+/* CSS změny pro tmavé pozadí registračních polí */
+
+/* Specifické styly pro registrační formulář - tmavé pozadí */
+#firstName,
+#lastName, 
+#email,
+#phone,
+#company,
+#position {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--light-text) !important;
+}
+
+/* Focus stavy pro registrační pole */
+#firstName:focus,
+#lastName:focus,
+#email:focus,
+#phone:focus,
+#company:focus,
+#position:focus {
+    outline: none !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgba(50, 182, 122, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Placeholder text pro tmavé pozadí */
+#firstName::placeholder,
+#lastName::placeholder,
+#email::placeholder,
+#phone::placeholder,
+#company::placeholder,
+#position::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
