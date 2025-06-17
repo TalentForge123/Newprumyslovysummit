@@ -814,13 +814,13 @@ textarea:-webkit-autofill:active  {
 }
 /* CSS změny pro tmavé pozadí registračních polí */
 
-/* Specifické styly pro registrační formulář - tmavé pozadí */
-#firstName,
-#lastName, 
-#email,
-#phone,
-#company,
-#position {
+.register input[type="text"],
+.register input[type="email"],
+.register input[type="tel"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--light-text) !important;
+}
     background-color: rgba(255, 255, 255, 0.1) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     color: var(--light-text) !important;
