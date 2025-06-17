@@ -814,28 +814,26 @@ textarea:-webkit-autofill:active  {
 }
 /* CSS změny pro tmavé pozadí registračních polí */
 
-/* Používáme nejspecifičtější možný selektor */
-.registration-section .registration-form .form-group input[type="text"],
-.registration-section .registration-form .form-group input[type="email"], 
-.registration-section .registration-form .form-group input[type="tel"],
-.registration-section .registration-form .form-group select {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: #ffffff !important;
+/* ŘEŠENÍ PRO AUTOFILL A NORMÁLNÍ PSANÍ */
+#firstName,
+#lastName,
+#email,
+#phone,
+#company,
+#position {
+    color: #000000 !important;
 }
 
-/* Focus stavy */
-.registration-section .registration-form .form-group input[type="text"]:focus,
-.registration-section .registration-form .form-group input[type="email"]:focus,
-.registration-section .registration-form .form-group input[type="tel"]:focus,
-.registration-section .registration-form .form-group select:focus {
-    outline: none !important;
-    border-color: #32B67A !important;
-    box-shadow: 0 0 0 3px rgba(50, 182, 122, 0.1) !important;
-    background-color: rgba(255, 255, 255, 0.15) !important;
+#firstName:-webkit-autofill,
+#lastName:-webkit-autofill,
+#email:-webkit-autofill,
+#phone:-webkit-autofill,
+#company:-webkit-autofill,
+#position:-webkit-autofill {
+    -webkit-text-fill-color: #000000 !important;
+    color: #000000 !important;
 }
 
-/* Placeholder text */
-.registration-section .registration-form .form-group input::placeholder {
-    color: rgba(255, 255, 255, 0.7) !important;
+.registration-section .registration-form input {
+    color: #000000 !important;
 }
