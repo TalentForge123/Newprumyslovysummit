@@ -814,38 +814,28 @@ textarea:-webkit-autofill:active  {
 }
 /* CSS změny pro tmavé pozadí registračních polí */
 
-/* SPRÁVNÝ CSS KÓD - OPRAVA TŘÍDY SEKCE */
-.registration-section input[type="text"],
-.registration-section input[type="email"],
-.registration-section input[type="tel"] {
+/* Používáme nejspecifičtější možný selektor */
+.registration-section .registration-form .form-group input[type="text"],
+.registration-section .registration-form .form-group input[type="email"], 
+.registration-section .registration-form .form-group input[type="tel"],
+.registration-section .registration-form .form-group select {
     background-color: rgba(255, 255, 255, 0.1) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: var(--light-text) !important;
-}
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: var(--light-text) !important;
+    color: #ffffff !important;
 }
 
-/* Focus stavy pro registrační pole */
-#firstName:focus,
-#lastName:focus,
-#email:focus,
-#phone:focus,
-#company:focus,
-#position:focus {
+/* Focus stavy */
+.registration-section .registration-form .form-group input[type="text"]:focus,
+.registration-section .registration-form .form-group input[type="email"]:focus,
+.registration-section .registration-form .form-group input[type="tel"]:focus,
+.registration-section .registration-form .form-group select:focus {
     outline: none !important;
-    border-color: var(--primary-color) !important;
+    border-color: #32B67A !important;
     box-shadow: 0 0 0 3px rgba(50, 182, 122, 0.1) !important;
     background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Placeholder text pro tmavé pozadí */
-#firstName::placeholder,
-#lastName::placeholder,
-#email::placeholder,
-#phone::placeholder,
-#company::placeholder,
-#position::placeholder {
+/* Placeholder text */
+.registration-section .registration-form .form-group input::placeholder {
     color: rgba(255, 255, 255, 0.7) !important;
 }
