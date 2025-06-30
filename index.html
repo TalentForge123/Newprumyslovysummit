@@ -1204,107 +1204,14 @@ function downloadPartnershipOffer() {
                 <p>Staňte se součástí největší průmyslové události roku!</p>
             </div>
 
-            <div class="success-message" id="successMessage" style="display: none;">
-                <strong>Děkujeme za registraci!</strong> Vaše přihláška byla úspěšně odeslána. Brzy vás budeme kontaktovat s dalšími informacemi.
-            </div>
-
-            <form id="registrationForm" class="registration-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="firstName">Křestní jméno <span class="required">*</span></label>
-                        <input type="text" id="firstName" name="firstName" required>
-                        <div class="error-message" id="firstNameError">Prosím zadejte křestní jméno</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastName">Příjmení <span class="required">*</span></label>
-                        <input type="text" id="lastName" name="lastName" required>
-                        <div class="error-message" id="lastNameError">Prosím zadejte příjmení</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">E-mailová adresa <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                        <div class="error-message" id="emailError">Prosím zadejte platnou e-mailovou adresu</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Mobilní telefon</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">Společnost <span class="required">*</span></label>
-                        <input type="text" id="company" name="company" required>
-                        <div class="error-message" id="companyError">Prosím zadejte název společnosti</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="position">Pracovní pozice <span class="required">*</span></label>
-                        <input type="text" id="position" name="position" required>
-                        <div class="error-message" id="positionError">Prosím zadejte pracovní pozici</div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="participationType">Typ účasti <span class="required">*</span></label>
-                        <select id="participationType" name="participationType" required>
-                            <option value="">Vyberte typ účasti</option>
-                            <option value="participant">Účastník</option>
-                            <option value="partner">Partner</option>
-                            <option value="speaker">Řečník</option>
-                            <option value="media">Média</option>
-                        </select>
-                        <div class="error-message" id="participationTypeError">Prosím vyberte typ účasti</div>
-                    </div>
-                </div>
-
-                <div class="checkbox-group">
-                    <h3>Oblasti zájmu (vyberte všechny relevantní)</h3>
-                    <div class="checkbox-grid">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="ai" name="interests" value="ai">
-                            <label for="ai">Umělá inteligence v průmyslu</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="factories" name="interests" value="factories">
-                            <label for="factories">Továrny budoucnosti</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="automotive" name="interests" value="automotive">
-                            <label for="automotive">Automotive a automatizace</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="business" name="interests" value="business">
-                            <label for="business">Nové obchodní modely</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="esg" name="interests" value="esg">
-                            <label for="esg">ESG strategie</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="digitalization" name="interests" value="digitalization">
-                            <label for="digitalization">Digitalizace a průmysl 4.0</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gdpr-consent">
-                    <label>
-                        <input type="checkbox" id="gdprConsent" name="gdprConsent" required>
-                        Souhlasím se zpracováním osobních údajů pro účely registrace na Průmyslový Summit 2025 a zasílání souvisejících informací. Více informací o zpracování osobních údajů najdete v našich <a href="#" target="_blank">zásadách ochrany osobních údajů</a>.
-                    </label>
-                    <div class="error-message" id="gdprError">Prosím potvrďte souhlas se zpracováním osobních údajů</div>
-                </div>
-
-                <button type="submit" class="submit-btn" id="submitBtn">
+            <div class="registration-link-container">
+                <a href="https://app.smartemailing.cz/public/web-forms-v2/display-form/343035-znk1s7ic9e75khxa65w4g055uj82lk033qzfld602ncgtygw1lnywpipgiv891x318lwm7zfr9k219ejid59h4li96o8j16u41cv" 
+                   target="_blank" 
+                   class="registration-link-btn">
                     Registrovat se na summit
-                </button>
-
-                <div class="loading" id="loading" style="display: none;">
-                    <div class="spinner"></div>
-                    <p>Odesíláme vaši registraci...</p>
-                </div>
-            </form>
+                </a>
+                <p class="registration-note">Kliknutím budete přesměrováni na registrační formulář.</p>
+            </div>
         </div>
     </div>
 </section>
