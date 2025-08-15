@@ -556,16 +556,13 @@ header {
   display: inline-block;
 }
 
-/* Speciální styl pro Conteg s tmavým pozadím */
+/* Speciální styl pro Conteg se světle šedým pozadím */
 .partner-item.conteg {
-  background-color: #222; /* tmavě šedé/černé pozadí */
+  background-color: #e0e0e0; /* světle šedá */
   border-radius: 8px;
   padding: 10px;
 }
 
-.partner-item.conteg img {
-  filter: brightness(0) invert(1); /* volitelné – pokud chceš logo celé bílé */
-}
 
 /* --- Mřížka vertikál --- */
 .verticals-grid {
