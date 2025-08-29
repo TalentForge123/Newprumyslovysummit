@@ -1174,3 +1174,72 @@ footer {
         font-size: 1.8rem;
     }
 }
+/* ===== WOW UPGRADES ===== */
+
+/* 1) Hero – jemně animované pozadí + CTA duo */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:-20%;
+  background:
+    radial-gradient(40% 40% at 20% 30%, rgba(50,182,122,.25), transparent 60%),
+    radial-gradient(35% 35% at 80% 20%, rgba(0,123,255,.22), transparent 60%),
+    radial-gradient(30% 30% at 60% 80%, rgba(111,66,193,.18), transparent 60%);
+  filter: blur(30px);
+  animation: heroFloat 18s linear infinite;
+}
+@keyframes heroFloat{
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(-4%,3%,0) scale(1.05); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+.cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:22px; }
+.btn{ padding:14px 22px; border-radius:10px; font-weight:700; text-decoration:none; }
+.btn-primary{ background:linear-gradient(135deg,#32b67a,#28a745); color:#fff; }
+.btn-primary:hover{ filter:brightness(1.05); }
+.btn-ghost{ background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.25); }
+.btn-ghost:hover{ background:rgba(255,255,255,.14); }
+
+/* 2) Mikro-animace karet (řečníci + program) */
+.speakers-grid .speaker-card,
+.program-pillars .pillar-card{
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.speakers-grid .speaker-card:hover,
+.program-pillars .pillar-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0,0,0,.12);
+  border-color:#bfe6d1;
+}
+.speaker-image{ outline:1px solid rgba(255,255,255,.35); outline-offset:-2px; }
+
+/* 3) Podporovatelé – nekonečný carousel log */
+.supporting-partners{ padding:70px 0; background:#fff; text-align:center; }
+.supporting-partners h2{ font-size:1.8rem; font-weight:700; margin-bottom:10px; color:#2c3e50; }
+.supporting-partners p{ color:#666; margin:0 0 28px; font-size:.98rem; }
+
+.logo-carousel{ overflow:hidden; position:relative; }
+.logo-track{
+  display:flex; gap:60px; align-items:center;
+  will-change: transform;
+  animation: logoscroll 30s linear infinite;
+}
+.logo-track img{
+  max-height:60px; width:auto; object-fit:contain;
+  filter: grayscale(100%) opacity(.9);
+  transition: filter .25s ease, transform .25s ease;
+}
+.logo-track img:hover{ filter:grayscale(0%) opacity(1); transform:scale(1.05); }
+
+@keyframes logoscroll{
+  0%{ transform: translateX(0); }
+  100%{ transform: translateX(-50%); } /* díky zdvojení obsahu běží plynule */
+}
+
+/* 4) drobnosti */
+img[loading="lazy"]{ /* nic – jen připomínka, že to používáme */ }
+
