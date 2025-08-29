@@ -556,13 +556,6 @@ header {
   display: inline-block;
 }
 
-/* Speciální styl pro Conteg se světle šedým pozadím */
-.partner-item.conteg {
-  background-color: #e0e0e0; /* světle šedá */
-  border-radius: 8px;
-  padding: 10px;
-}
-
 
 /* --- Mřížka vertikál --- */
 .verticals-grid {
