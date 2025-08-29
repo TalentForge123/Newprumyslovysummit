@@ -563,75 +563,39 @@ header {
   grid-template-columns: 1fr;
   gap: 20px;
 }
-/* Podporovatelé konference – FIX vzhledu */
+/* Podporovatelé konference */
 .supporting-partners {
-  padding: 70px 0;
-  background: #fff;
+  padding: 60px 0;
+  background: #f8f9fa;
+  text-align: center;
 }
 
-.supporting-partners .container { max-width: 1200px; }
-
-/* Hlavička */
 .supporting-partners h2 {
-  text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #2c3e50;
-  margin-bottom: 16px;
-}
-.supporting-partners p { 
-  text-align: center; 
-  color: #6b7280; 
-  margin-bottom: 28px; 
-  font-size: .96rem;
+  margin-bottom: 40px;
 }
 
-/* Mřížka kartiček */
 .supporting-logos {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (max-width: 1200px) { .supporting-logos { grid-template-columns: repeat(5, 1fr); } }
-@media (max-width: 992px)  { .supporting-logos { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 768px)  { .supporting-logos { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 520px)  { .supporting-logos { grid-template-columns: repeat(2, 1fr); } }
-
-/* Kartička loga */
-.supporting-logo {
-  background: #fff;
-  border: 1px solid #e8eef0;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.04);
-  height: 92px;                /* sjednocená výška */
-  padding: 10px 14px;
-  display: grid;
-  place-items: center;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-.supporting-logo:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.08);
-  border-color: #d7e5de;       /* lehká zelená pro návaznost brandu */
-}
-
-/* Obrázky log – držíme v rozumné velikosti */
 .supporting-logo img {
-  max-width: 150px;            /* šířka limit */
-  max-height: 50px;            /* výška limit */
-  width: auto;
-  height: auto;
+  max-width: 160px;
+  max-height: 80px;
   object-fit: contain;
-  filter: grayscale(100%) contrast(1.05);
-  opacity: .95;
-  transition: filter .25s ease, opacity .25s ease, transform .25s ease;
+  transition: transform 0.3s ease;
 }
-.supporting-logo:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.02);
+
+.supporting-logo img:hover {
+  transform: scale(1.08);
 }
+
 
 
 
