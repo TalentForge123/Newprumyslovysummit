@@ -563,6 +563,39 @@ header {
   grid-template-columns: 1fr;
   gap: 20px;
 }
+/* Podporovatelé konference */
+.supporting-partners {
+  padding: 60px 0;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.supporting-partners h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 40px;
+}
+
+.supporting-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.supporting-logo img {
+  max-width: 160px;
+  max-height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.supporting-logo img:hover {
+  transform: scale(1.08);
+}
+
 
 /* --- Responsivita --- */
 @media (max-width: 800px) {
