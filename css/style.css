@@ -398,64 +398,246 @@ header {
 }
 
 
-/* Program Section */
-.program {
-    background-color: var(--light-bg);
+/* PROGRAM SECTION */
+.program-section {
+    padding: 80px 0;
+    background: url("images/summit_background cmyk.jpg") no-repeat center center;
+    background-size: cover;
+    position: relative;
 }
 
-.program-note {
+.program-section::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(0,0,0,0.6); /* tmavý overlay pro lepší čitelnost */
+}
+
+.program-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.program-section h2 {
     text-align: center;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
-.program-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.tab {
-    padding: 10px 20px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: var(--transition);
-}
-
-.tab.active {
-    border-bottom-color: var(--primary-color);
-    color: var(--primary-color);
+    font-size: 2.5rem;
     font-weight: 700;
-}
-
-.program-content {
-    display: none;
-}
-
-.program-content.active {
-    display: block;
-}
-
-.timeline-item {
-    display: flex;
+    color: #ffffff;
     margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
 }
 
-.time {
-    min-width: 120px;
+.program-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #dddddd;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.program-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.pillar-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #32b67a;
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.pillar-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #32b67a, #28a745);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.pillar-card h3 {
+    font-size: 1.4rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #2c3e50;
+    margin-bottom: 15px;
 }
 
-.event h3 {
-    margin-bottom: 5px;
+.pillar-card p {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.event p {
-    color: #666;
+.pillar-speakers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.speaker-tag {
+    background: #e8f5e8;
+    color: #32b67a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.panel-discussion {
+    margin-bottom: 60px;
+}
+
+.panel-discussion h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.panel-card {
+    background: linear-gradient(135deg, #32b67a, #28a745);
+    color: white;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+}
+
+.panel-card h4 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.panel-card p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.panel-participants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.participant-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
     font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.program-cta {
+    text-align: center;
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.program-cta h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.program-cta p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #32b67a, #28a745);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(50, 182, 122, 0.3);
+    text-decoration: none;
+    color: white;
+}
+
+/* Responzivní design */
+@media (max-width: 768px) {
+    .program-pillars {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pillar-card {
+        padding: 25px;
+    }
+    
+    .program-section h2 {
+        font-size: 2rem;
+    }
+    
+    .panel-card {
+        padding: 30px 20px;
+    }
+    
+    .panel-participants {
+        gap: 8px;
+    }
+    
+    .participant-tag {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .program-section {
+        padding: 60px 0;
+    }
+    
+    .program-section .container {
+        padding: 0 15px;
+    }
+    
+    .pillar-card {
+        padding: 20px;
+    }
+    
+    .pillar-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .program-cta {
+        padding: 30px 20px;
+    }
 }
 
 /* Partners Section */
@@ -1301,25 +1483,7 @@ img[loading="lazy"]{ /* nic – jen připomínka, že to používáme */ }
   box-shadow: 0 4px 18px rgba(0,0,0,.05);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
 }
-
-/* Tečka na ose */
-.agenda-item::before {
-  content: "";
-  position: absolute;
-  left: 22px;
-  top: 22px;
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: #32b67a;          /* default pro talk */
-  box-shadow: 0 0 0 6px rgba(50,182,122,.12);
-  border: 2px solid #fff;
 }
-
-/* Specifické barvy tečky dle typu */
-.agenda-item.break::before  { background: #9ca3af; box-shadow: 0 0 0 6px rgba(156,163,175,.15); }
-.agenda-item.panel::before  { background: #6f42c1; box-shadow: 0 0 0 6px rgba(111,66,193,.15); }
-.agenda-item.tbc::before    { background: #f59e0b; box-shadow: 0 0 0 6px rgba(245,158,11,.15); }
 
 /* Levý sloupec s časem */
 .agenda-time {
