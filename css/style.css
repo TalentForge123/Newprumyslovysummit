@@ -401,9 +401,9 @@ header {
 /* PROGRAM SECTION */
 .program-section {
     padding: 80px 0;
-    background: url("images/summit_background cmyk.jpg") no-repeat center center;
-    background-size: cover;
+    background-color: #C3A375; /* kartonová barva */
     position: relative;
+}
 }
 
 .program-section::before {
