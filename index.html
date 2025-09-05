@@ -388,147 +388,198 @@ document.addEventListener('DOMContentLoaded', function() {
 <section id="program" class="program-section">
     <div class="container">
         <h2>PROGRAM</h2>
-        <p class="program-subtitle">Jednodenní summit zaměřený na klíčové pilíře průmyslové transformace</p>
-
-        <!-- Program – Stage 1 (s časy) -->
-<section id="agenda-stage1" class="agenda agenda--timeline">
+      <section id="agenda" class="agenda-section">
   <div class="container">
-    <h2>PROGRAM – STAGE 1</h2>
-    <p class="agenda-subtitle">Hlavní stage • dopolední blok + panel a odpolední pokračování</p>
+    <h2>PROGRAM</h2>
+    <p class="agenda-subtitle">Hlavní stage & workshopy – přehled dne</p>
 
-    <div class="agenda-list">
+    <div class="agenda-grid">
+      <!-- ===== LEFT: STAGE 1 ===== -->
+      <div class="agenda-column">
+        <h3 class="stage-title">Stage 1</h3>
+        <div class="agenda-list">
 
-      <article class="agenda-item talk" data-time="09:20–09:35">
-        <div class="agenda-time">09:20–09:35</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Škoda X: Jak tradiční automobilka inovuje digitální služby</h3>
-          <div class="agenda-meta"><span class="speaker">Jaroslav Pelant</span><span class="divider">•</span><span class="company">Škoda X</span></div>
+          <!-- 09:20–09:35 -->
+          <article class="agenda-item talk" data-time="09:20–09:35">
+            <div class="agenda-time">09:20–09:35</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Škoda X: Jak tradiční automobilka inovuje digitální služby</h4>
+              <div class="agenda-meta"><span class="speaker">Jaroslav Pelant</span><span class="divider">•</span><span class="company">Škoda X</span></div>
+            </div>
+          </article>
+
+          <!-- 09:35–09:50 -->
+          <article class="agenda-item talk" data-time="09:35–09:50">
+            <div class="agenda-time">09:35–09:50</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Od tradiční výroby k datové továrně: Realita digitální transformace</h4>
+              <div class="agenda-meta"><span class="speaker">Milan Šlachta</span><span class="divider">•</span><span class="company">Bosch</span></div>
+            </div>
+          </article>
+
+          <!-- 09:50–10:05 -->
+          <article class="agenda-item talk" data-time="09:50–10:05">
+            <div class="agenda-time">09:50–10:05</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Inženýring pro novou energetiku: Digitalizace, bezpečnost, výkon</h4>
+              <div class="agenda-meta"><span class="speaker">Jaromír Kříž</span><span class="divider">•</span><span class="company">Bilfinger</span></div>
+            </div>
+          </article>
+
+          <!-- Coffee break -->
+          <article class="agenda-item break" data-time="10:05–10:15">
+            <div class="agenda-time">10:05–10:15</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Coffee break</h4>
+            </div>
+          </article>
+
+          <!-- 10:15–10:30 -->
+          <article class="agenda-item talk" data-time="10:15–10:30">
+            <div class="agenda-time">10:15–10:30</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Umělá inteligence v českém průmyslu: Kde jsme a jak zrychlit?</h4>
+              <div class="agenda-meta"><span class="speaker">Ondřej Vaněk</span><span class="divider">•</span><span class="company">Adastra</span></div>
+            </div>
+          </article>
+
+          <!-- 10:30–10:45 -->
+          <article class="agenda-item talk" data-time="10:30–10:45">
+            <div class="agenda-time">10:30–10:45</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Automatizace, která dává smysl: Jak Model Group mění výrobu</h4>
+              <div class="agenda-meta"><span class="speaker">Josef Chalupný</span><span class="divider">•</span><span class="company">Model Group</span></div>
+            </div>
+          </article>
+
+          <!-- 10:45–11:00 (TBC) -->
+          <article class="agenda-item talk tbc" data-time="10:45–11:00">
+            <div class="agenda-time">10:45–11:00</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Když ESG dává smysl / Jak Bonatrans roste na globálních trzích</h4>
+              <div class="agenda-meta"><span class="speaker">Niclas Pfueller (Brose)</span><span class="alt-option"> / </span><span class="speaker">Jakub Weimann (Bonatrans)</span></div>
+              <span class="badge badge-tbc">TBC</span>
+            </div>
+          </article>
+
+          <!-- 11:00–11:15 -->
+          <article class="agenda-item talk" data-time="11:00–11:15">
+            <div class="agenda-time">11:00–11:15</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Energetická soběstačnost podniku: Realita, nebo mýtus?</h4>
+              <div class="agenda-meta"><span class="speaker">Ivan Macho</span><span class="divider">•</span><span class="company">PKV</span></div>
+            </div>
+          </article>
+
+          <!-- 11:15–12:00 panel -->
+          <article class="agenda-item panel" data-time="11:15–12:00">
+            <div class="agenda-time">11:15–12:00</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Co znamená být „digitally ready“ v roce 2025?</h4>
+              <div class="agenda-meta"><span class="speaker">J. Pelant, O. Vaněk, M. Šlachta, J. Kříž, J. Chalupný</span></div>
+              <span class="badge badge-panel">Panel</span>
+            </div>
+          </article>
+
+          <!-- Oběd -->
+          <article class="agenda-item break lunch" data-time="12:00–13:00">
+            <div class="agenda-time">12:00–13:00</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Oběd & Networking</h4>
+            </div>
+          </article>
+
+          <!-- 13:00–14:15 -->
+          <article class="agenda-item talk" data-time="13:00–13:15">
+            <div class="agenda-time">13:00–13:15</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Návrat do výroby: Jak přivést a udržet lidi v průmyslu?</h4>
+              <div class="agenda-meta"><span class="speaker">Jana Kafková</span><span class="divider">•</span><span class="company">Meopta</span></div>
+            </div>
+          </article>
+
+          <article class="agenda-item talk" data-time="13:15–13:30">
+            <div class="agenda-time">13:15–13:30</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Industry 4.0 po pěti letech: Co se skutečně změnilo?</h4>
+              <div class="agenda-meta"><span class="speaker">Vladislav Němec</span><span class="divider">•</span><span class="company">ifm electronic</span></div>
+            </div>
+          </article>
+
+          <article class="agenda-item talk" data-time="13:30–13:45">
+            <div class="agenda-time">13:30–13:45</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Financování exportu: Jak podpořit expanzi a kapitál</h4>
+              <div class="agenda-meta"><span class="speaker">Miroslav Stříbrný</span><span class="divider">•</span><span class="company">Česká exportní banka</span></div>
+            </div>
+          </article>
+
+          <article class="agenda-item talk" data-time="13:45–14:00">
+            <div class="agenda-time">13:45–14:00</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Devizové trhy a jejich výzvy pro průmyslové podniky</h4>
+              <div class="agenda-meta"><span class="speaker">Miroslav Novák</span><span class="divider">•</span><span class="company">Citfin</span></div>
+            </div>
+          </article>
+
+          <article class="agenda-item talk" data-time="14:00–14:15">
+            <div class="agenda-time">14:00–14:15</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">Současné trendy v chlazení datových center pro průmysl</h4>
+              <div class="agenda-meta"><span class="speaker">Lukáš Dvořák</span><span class="divider">•</span><span class="company">Conteg</span></div>
+            </div>
+          </article>
+
         </div>
-      </article>
+      </div>
 
-      <article class="agenda-item talk" data-time="09:35–09:50">
-        <div class="agenda-time">09:35–09:50</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Od tradiční výroby k datové továrně: Realita digitální transformace</h3>
-          <div class="agenda-meta"><span class="speaker">Milan Šlachta</span><span class="divider">•</span><span class="company">Bosch</span></div>
+      <!-- ===== RIGHT: STAGE 2 (bez časů) ===== -->
+      <div class="agenda-column">
+        <h3 class="stage-title">Stage 2 – Workshopy</h3>
+        <div class="agenda-list">
+
+          <article class="agenda-item workshop no-time">
+            <div class="agenda-time">—</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">
+                Jak v Adastře nasazujeme AI do reálného provozu?
+                <span class="badge badge-workshop">Workshop</span>
+              </h4>
+              <div class="agenda-meta"><span class="speaker">Ivana Karhanová</span><span class="divider">•</span><span class="company">Adastra</span></div>
+              <p class="agenda-desc">Od identifikace use casu až po nasazení a adopci ve firmě.</p>
+            </div>
+          </article>
+
+          <article class="agenda-item workshop no-time">
+            <div class="agenda-time">—</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">
+                BEDNAR FMT: Inovace v zemědělské technice
+                <span class="badge badge-workshop">Workshop</span>
+              </h4>
+              <div class="agenda-meta"><span class="speaker">Jan Slavík</span><span class="divider">•</span><span class="company">BEDNAR FMT</span></div>
+              <p class="agenda-desc">Špičkové stroje pro setí, hnojení a zpracování půdy – inovace od roku 1997.</p>
+            </div>
+          </article>
+
+          <article class="agenda-item workshop no-time">
+            <div class="agenda-time">—</div>
+            <div class="agenda-body">
+              <h4 class="agenda-title">
+                Hyundai Motor Manufacturing Czech: vysokotaktová moderní výroba
+                <span class="badge badge-workshop">Workshop</span>
+              </h4>
+              <div class="agenda-meta"><span class="speaker">Artur Heider</span><span class="divider">•</span><span class="company">Hyundai Motor Manufacturing Czech</span></div>
+              <p class="agenda-desc">1400 vozů denně na hlavní lince – organizace, kvalita, takt.</p>
+            </div>
+          </article>
+
         </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="09:50–10:05">
-        <div class="agenda-time">09:50–10:05</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Inženýring pro novou energetiku: Digitalizace, bezpečnost, výkon</h3>
-          <div class="agenda-meta"><span class="speaker">Jaromír Kříž</span><span class="divider">•</span><span class="company">Bilfinger</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item break" data-time="10:05–10:15">
-        <div class="agenda-time">10:05–10:15</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Coffee break</h3>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="10:15–10:30">
-        <div class="agenda-time">10:15–10:30</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Umělá inteligence v českém průmyslu: Kde jsme a jak zrychlit?</h3>
-          <div class="agenda-meta"><span class="speaker">Ondřej Vaněk</span><span class="divider">•</span><span class="company">Adastra</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="10:30–10:45">
-        <div class="agenda-time">10:30–10:45</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Automatizace, která dává smysl: Jak Model Group mění výrobu</h3>
-          <div class="agenda-meta"><span class="speaker">Josef Chalupný</span><span class="divider">•</span><span class="company">Model Group</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item talk tbc" data-time="10:45–11:00">
-        <div class="agenda-time">10:45–11:00</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">
-            Když ESG dává smysl: Provozní a byznysové přínosy?
-            <span class="alt-option">/</span>
-            Jak Bonatrans roste na globálních trzích?
-          </h3>
-          <div class="agenda-meta">
-            <span class="speaker">Niclas Pfueller (Brose)</span>
-            <span class="alt-option"> / </span>
-            <span class="speaker">Jakub Weimann (Bonatrans)</span>
-          </div>
-          <span class="badge badge-tbc">TBC</span>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="11:00–11:15">
-        <div class="agenda-time">11:00–11:15</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Energetická soběstačnost podniku: Realita, nebo mýtus?</h3>
-          <div class="agenda-meta"><span class="speaker">Ivan Macho</span><span class="divider">•</span><span class="company">PKV</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item panel" data-time="11:15–12:00">
-        <div class="agenda-time">11:15–12:00</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Co znamená být „digitally ready“ v roce 2025?</h3>
-          <div class="agenda-meta"><span class="speaker">J. Pelant, O. Vaněk, M. Šlachta, J. Kříž, J. Chalupný</span></div>
-          <span class="badge badge-panel">Panel</span>
-        </div>
-      </article>
-
-      <article class="agenda-item break" data-time="12:00–13:00">
-        <div class="agenda-time">12:00–13:00</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Oběd & Networking</h3>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="13:00–13:15">
-        <div class="agenda-time">13:00–13:15</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Návrat do výroby: Jak přivést a udržet lidi v průmyslu?</h3>
-          <div class="agenda-meta"><span class="speaker">Jana Kafková</span><span class="divider">•</span><span class="company">Meopta</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="13:15–13:30">
-        <div class="agenda-time">13:15–13:30</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Industry 4.0 po pěti letech: Co se skutečně změnilo?</h3>
-          <div class="agenda-meta"><span class="speaker">Vladislav Němec</span><span class="divider">•</span><span class="company">ifm electronic</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="13:30–13:45">
-        <div class="agenda-time">13:30–13:45</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Financování exportu: Jak podpořit expanzi a kapitál</h3>
-          <div class="agenda-meta"><span class="speaker">Miroslav Stříbrný</span><span class="divider">•</span><span class="company">Česká exportní banka</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="13:45–14:00">
-        <div class="agenda-time">13:45–14:00</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Devizové trhy a jejich výzvy pro průmyslové podniky</h3>
-          <div class="agenda-meta"><span class="speaker">Miroslav Novák</span><span class="divider">•</span><span class="company">Citifin</span></div>
-        </div>
-      </article>
-
-      <article class="agenda-item talk" data-time="14:00–14:15">
-        <div class="agenda-time">14:00–14:15</div>
-        <div class="agenda-body">
-          <h3 class="agenda-title">Současné trendy v chlazení datových center pro průmysl</h3>
-          <div class="agenda-meta"><span class="speaker">Lukáš Dvořák</span><span class="divider">•</span><span class="company">Conteg</span></div>
-        </div>
-      </article>
-
+      </div>
     </div>
   </div>
 </section>
+
 
         
         <div class="program-pillars">
