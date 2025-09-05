@@ -1472,5 +1472,78 @@ img[loading="lazy"]{ /* nic – jen připomínka, že to používáme */ }
   .agenda-title{ font-size:1rem; }
   .agenda-time{ font-size:.95rem; }
 }
+/* ===== PROGRAM: 2 sloupce, bez teček, jen break/oběd podbarvené ===== */
+.agenda-section { padding: 70px 0; background:#fff; }
+.agenda-section h2 { text-align:center; font-size:2.2rem; font-weight:900; color:#1f2937; margin-bottom:8px; }
+.agenda-section .agenda-subtitle { text-align:center; color:#6b7280; margin:0 0 26px; }
+
+/* 2 sloupce na desktopu, 1 sloupec na mobilech */
+.agenda-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:28px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .agenda-grid{ grid-template-columns: 1fr; gap:22px; }
+}
+
+/* Nadpisy sloupců */
+.stage-title{
+  font-size:1.2rem; font-weight:800; color:#111827;
+  margin: 6px 0 14px;
+}
+
+/* Seznam a položky */
+.agenda-list{ display:flex; flex-direction:column; gap:14px; }
+
+.agenda-item{
+  display:grid; grid-template-columns:120px 1fr; gap:16px;
+  background:#fff; border:1px solid #e8eef0; border-radius:14px;
+  padding:16px 18px; box-shadow:0 4px 16px rgba(0,0,0,.05);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+  border-left:4px solid transparent;           /* barevná linka dle typu níže */
+}
+.agenda-item:hover{ transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,.10); border-color:#cfe7db; }
+
+.agenda-time{
+  font-weight:800; color:#0f172a; letter-spacing:.4px;
+  display:flex; align-items:center; font-variant-numeric: tabular-nums;
+}
+.agenda-body{ display:flex; flex-direction:column; gap:6px; }
+.agenda-title{ margin:0; color:#111827; font-size:1.02rem; line-height:1.35; font-weight:760; }
+.agenda-meta{ color:#64748b; font-size:.94rem; display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
+.agenda-meta .speaker{ font-weight:700; color:#334155; }
+.agenda-meta .company{ color:#64748b; }
+.divider{ opacity:.5; }
+
+@media (max-width: 1024px){
+  .agenda-item{ grid-template-columns:100px 1fr; }
+}
+@media (max-width: 560px){
+  .agenda-item{ grid-template-columns:84px 1fr; padding:14px; }
+  .agenda-title{ font-size:1rem; }
+  .agenda-time{ font-size:.95rem; }
+}
+
+/* Typy položek — pouze barevná levá linka, žádné tečky/osy */
+.agenda-item.talk   { border-left-color:#32b67a; }
+.agenda-item.panel  { border-left-color:#6f42c1; background: linear-gradient(180deg,#fff,#faf6ff); }
+.agenda-item.break  { border-left-color:#94a3b8; background:#f4f7fb; border-color:#d7e3f3; }
+.agenda-item.lunch  { border-left-color:#d97706; background:#fff6e9; border-color:#f2d3a2; }
+
+/* Workshopy (pravý sloupec) */
+.agenda-item.workshop{ border-left-color:#0ea5e9; }
+.badge{ display:inline-block; padding:4px 10px; border-radius:999px; font-size:.74rem; font-weight:800; letter-spacing:.2px; vertical-align:middle; }
+.badge-panel{ background:#efe7ff; color:#5a2d91; border:1px solid #e1d7ff; }
+.badge-tbc{ background:#fff6e6; color:#b45309; border:1px solid #fde6bf; }
+.badge-workshop{ background:#e6f6fe; color:#0369a1; border:1px solid #b9e6fb; }
+
+/* Položky bez času (Stage 2) – jen opticky ztlumit časový sloupec */
+.agenda-item.no-time .agenda-time{ opacity:.35; }
+
+/* ————— DŮLEŽITÉ: vypnout případnou osu/tečky z dřívějška ————— */
+.agenda .agenda-list::before { display:none !important; }
+.agenda-item::before { display:none !important; }
 
 
