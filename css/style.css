@@ -688,11 +688,6 @@ header {
   filter: grayscale(0%) opacity(1);
   transform: scale(1.05);
 }
-
-/* Nekonečný plynulý posuv – díky zdvojenému obsahu posouváme o -50% */
-@keyframes logos-roll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 /* Volitelné: pauza při hoveru na celý pás (můžeš smazat, pokud nechceš) */
