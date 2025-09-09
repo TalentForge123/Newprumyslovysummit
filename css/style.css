@@ -623,7 +623,10 @@ header {
   grid-template-columns: 1fr;
   gap: 20px;
 }
-/* === Podporovatelé – nekonečný plynulý carousel log === */
+
+/* === PODPOROVATELÉ – nekonečný, plynulý logoslider === */
+
+/* Sekce (volitelné základní odsazení a nadpis) */
 .supporting-partners {
   padding: 70px 0;
   background: #fff;
@@ -637,42 +640,64 @@ header {
   margin-bottom: 24px;
 }
 
-/* Kontejner a pás log */
+/* Kontejner s maskami na okrajích (jemné vytracení) */
 .logo-carousel {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+}
+.logo-carousel::before,
+.logo-carousel::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 60px;                    /* šířka „fading“ na okrajích */
+  pointer-events: none;
+  z-index: 2;
+}
+.logo-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+}
+.logo-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, rgba(255,255,255,0));
 }
 
+/* Pás s logy — uprav rychlost a mezery přes CSS proměnné */
 .logo-track {
-  --logo-gap: 60px;          /* mezera mezi logy */
-  --logo-speed: 18s;         /* rychlost posuvu (nižší = rychlejší) */
-  display: flex;
-  gap: var(--logo-gap);
+  --logo-gap: 60px;              /* mezera mezi logy (px) */
+  --logo-speed: 18s;             /* rychlost – menší číslo = rychlejší */
+  display: inline-flex;
   align-items: center;
+  gap: var(--logo-gap);
   will-change: transform;
-  animation: logoscroll var(--logo-speed) linear infinite;
+  animation: logos-roll var(--logo-speed) linear infinite;
 }
 
-/* Obrázky log – sjednocení velikostí */
+/* Každé logo – sjednocení rozměrů */
 .logo-track img {
-  max-height: 60px;
-  max-width: 160px;          /* přidáno pro sjednocení širokých/čtvercových log */
+  max-height: 60px;              /* hlavní limit výšky loga */
+  max-width: 160px;              /* limit šířky, aby „široká“ loga nepřerůstala */
   width: auto;
   height: auto;
   object-fit: contain;
   filter: grayscale(100%) opacity(.9);
   transition: filter .25s ease, transform .25s ease;
 }
-
 .logo-track img:hover {
   filter: grayscale(0%) opacity(1);
   transform: scale(1.05);
 }
 
-/* Nekonečný posuv: díky zdvojenému obsahu jedeme plynule do -50% */
-@keyframes logoscroll {
+/* Nekonečný plynulý posuv – díky zdvojenému obsahu posouváme o -50% */
+@keyframes logos-roll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* Volitelné: pauza při hoveru na celý pás (můžeš smazat, pokud nechceš) */
+.logo-carousel:hover .logo-track {
+  animation-play-state: paused;
 }
 
 /* Preferuje-li uživatel méně animací, animaci vypneme */
@@ -680,31 +705,10 @@ header {
   .logo-track { animation: none; }
 }
 
-/* Lehké zmenšení na mobilech */
+/* Responsivita – menší mezery a loga na mobilech */
 @media (max-width: 640px) {
   .logo-track { --logo-gap: 36px; --logo-speed: 16s; }
   .logo-track img { max-height: 46px; max-width: 130px; }
-}
-
-
-
-/* --- Responsivita --- */
-@media (max-width: 800px) {
-  .partner-levels-info { grid-template-columns: 1fr; }
-}
-@media (max-width: 640px) {
-  .partner-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .partner-logo-placeholder {
-    justify-content: flex-start;
-  }
-  .partner-logo-placeholder img {
-    max-width: 80%;
-    max-height: 34px;
-  }
 }
 
 /* Registration Section */
