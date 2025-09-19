@@ -624,9 +624,8 @@ header {
   gap: 20px;
 }
 
-/* === PODPOROVATELÉ – nekonečný, plynulý logoslider === */
+/* === PODPOROVATELÉ – nekonečný, plynulý logoslider ve 2 řádcích === */
 
-/* Sekce (volitelné základní odsazení a nadpis) */
 .supporting-partners {
     padding: 70px 0;
     background: #fff;
@@ -640,54 +639,52 @@ header {
     margin-bottom: 24px;
 }
 
-/* Kontejner s maskami na okrajích (jemné vytracení) */
-.logo-carousel {
+/* Kontejner pro jeden řádek karuselu */
+.logo-carousel-row {
     position: relative;
     overflow: hidden;
+    margin-bottom: 24px;
 }
 
-.logo-carousel::before,
-.logo-carousel::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 60px; /* šířka „fading“ na okrajích */
-    pointer-events: none;
-    z-index: 2;
-}
-
-.logo-carousel::before {
-    left: 0;
-    background: linear-gradient(to right, #fff, rgba(255,255,255,0));
-}
-
-.logo-carousel::after {
-    right: 0;
-    background: linear-gradient(to left, #fff, rgba(255,255,255,0));
-}
-
-/* Pás s logy — úprava rychlosti a animace */
-.logo-track {
-    --logo-gap: 60px; /* mezera mezi logy (px) */
+/* Pás s logy pro posuv doleva */
+.logo-track-left {
+    --logo-gap: 60px;
     display: inline-flex;
     align-items: center;
     gap: var(--logo-gap);
     will-change: transform;
-    /* POUŽÍVÁ SE NOVÁ ANIMACE "logoscroll" */
-    animation: logoscroll 40s linear infinite; 
+    animation: scroll-left 45s linear infinite;
+    animation-play-state: running; /* Zajišťuje, že animace běží */
 }
 
-/* Nová definice animace pro plynulý nekonečný posun */
-@keyframes logoscroll {
+/* Pás s logy pro posuv doprava */
+.logo-track-right {
+    --logo-gap: 60px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--logo-gap);
+    will-change: transform;
+    animation: scroll-right 45s linear infinite;
+    animation-play-state: running; /* Zajišťuje, že animace běží */
+}
+
+/* Definice animace pro posuv doleva */
+@keyframes scroll-left {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-/* Každé logo – sjednocení rozměrů */
-.logo-track img {
-    max-height: 60px; /* hlavní limit výšky loga */
-    max-width: 160px; /* limit šířky, aby „široká“ loga nepřerůstala */
+/* Definice animace pro posuv doprava */
+@keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Každé logo - sjednocení rozměrů */
+.logo-track-left img,
+.logo-track-right img {
+    max-height: 60px;
+    max-width: 160px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -695,33 +692,10 @@ header {
     transition: filter .25s ease, transform .25s ease;
 }
 
-.logo-track img:hover {
+.logo-track-left img:hover,
+.logo-track-right img:hover {
     filter: grayscale(0%) opacity(1);
     transform: scale(1.05);
-}
-
-/* Volitelné: pauza při najetí myší na celý pás */
-.logo-carousel:hover .logo-track {
-    animation-play-state: paused;
-}
-
-/* Preferuje-li uživatel méně animací, animaci vypneme */
-@media (prefers-reduced-motion: reduce) {
-    .logo-track {
-        animation: none;
-    }
-}
-
-/* Responzivita – menší mezery a loga na mobilech */
-@media (max-width: 640px) {
-    .logo-track {
-        --logo-gap: 36px;
-        animation: logoscroll 30s linear infinite; /* Rychlost pro mobily */
-    }
-    .logo-track img {
-        max-height: 46px;
-        max-width: 130px;
-    }
 }
 
 /* Registration Section */
