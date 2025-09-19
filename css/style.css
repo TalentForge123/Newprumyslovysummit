@@ -628,94 +628,100 @@ header {
 
 /* Sekce (volitelné základní odsazení a nadpis) */
 .supporting-partners {
-  padding: 70px 0;
-  background: #fff;
-  text-align: center;
+    padding: 70px 0;
+    background: #fff;
+    text-align: center;
 }
 
 .supporting-partners h2 {
-  font-size: 1.9rem;
-  font-weight: 800;
-  color: #2c3e50;
-  margin-bottom: 24px;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 24px;
 }
 
 /* Kontejner s maskami na okrajích (jemné vytracení) */
 .logo-carousel {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .logo-carousel::before,
 .logo-carousel::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 60px; /* šířka „fading“ na okrajích */
-  pointer-events: none;
-  z-index: 2;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px; /* šířka „fading“ na okrajích */
+    pointer-events: none;
+    z-index: 2;
 }
 
 .logo-carousel::before {
-  left: 0;
-  background: linear-gradient(to right, #fff, rgba(255,255,255,0));
+    left: 0;
+    background: linear-gradient(to right, #fff, rgba(255,255,255,0));
 }
 
 .logo-carousel::after {
-  right: 0;
-  background: linear-gradient(to left, #fff, rgba(255,255,255,0));
+    right: 0;
+    background: linear-gradient(to left, #fff, rgba(255,255,255,0));
 }
 
-/* Pás s logy — upravená rychlost */
+/* Pás s logy — úprava rychlosti a animace */
 .logo-track {
-  --logo-gap: 60px; /* mezera mezi logy (px) */
-  --logo-speed: 45s; /* Zvýšená rychlost pro plynulé zobrazení všech log */
-  display: inline-flex;
-  align-items: center;
-  gap: var(--logo-gap);
-  will-change: transform;
-  animation: logos-roll var(--logo-speed) linear infinite;
+    --logo-gap: 60px; /* mezera mezi logy (px) */
+    display: inline-flex;
+    align-items: center;
+    gap: var(--logo-gap);
+    will-change: transform;
+    /* POUŽÍVÁ SE NOVÁ ANIMACE "logoscroll" */
+    animation: logoscroll 40s linear infinite; 
+}
+
+/* Nová definice animace pro plynulý nekonečný posun */
+@keyframes logoscroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* Každé logo – sjednocení rozměrů */
 .logo-track img {
-  max-height: 60px; /* hlavní limit výšky loga */
-  max-width: 160px; /* limit šířky, aby „široká“ loga nepřerůstala */
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: grayscale(100%) opacity(.9);
-  transition: filter .25s ease, transform .25s ease;
+    max-height: 60px; /* hlavní limit výšky loga */
+    max-width: 160px; /* limit šířky, aby „široká“ loga nepřerůstala */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(.9);
+    transition: filter .25s ease, transform .25s ease;
 }
 
 .logo-track img:hover {
-  filter: grayscale(0%) opacity(1);
-  transform: scale(1.05);
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
 }
 
 /* Volitelné: pauza při najetí myší na celý pás */
 .logo-carousel:hover .logo-track {
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
 
 /* Preferuje-li uživatel méně animací, animaci vypneme */
 @media (prefers-reduced-motion: reduce) {
-  .logo-track {
-    animation: none;
-  }
+    .logo-track {
+        animation: none;
+    }
 }
 
-/* Responsivita – menší mezery a loga na mobilech */
+/* Responzivita – menší mezery a loga na mobilech */
 @media (max-width: 640px) {
-  .logo-track {
-    --logo-gap: 36px;
-    --logo-speed: 30s; /* Zde je také nutné prodloužit rychlost pro menší obrazovky */
-  }
-  .logo-track img {
-    max-height: 46px;
-    max-width: 130px;
-  }
+    .logo-track {
+        --logo-gap: 36px;
+        animation: logoscroll 30s linear infinite; /* Rychlost pro mobily */
+    }
+    .logo-track img {
+        max-height: 46px;
+        max-width: 130px;
+    }
 }
 
 /* Registration Section */
