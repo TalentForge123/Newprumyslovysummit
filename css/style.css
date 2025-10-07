@@ -1089,26 +1089,47 @@ footer {
     .partner-item { flex-direction: column; text-align: center; gap: 10px; }
     .partnership-cta { padding: 30px 20px; }
 }
-/* === SINGLE CASE STUDY === */
-.case-studies { margin-top: 60px; }
-.case-studies .stage-title { text-align: center; }
-.stage-intro { text-align: center; color:#666; margin-bottom: 32px; }
+/* === FIX: reset konfliktů jen uvnitř .case-studies === */
+.case-studies h4,
+.case-studies h5 {
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 0 6px 0;
+}
 
-.case-card {
+/* === SINGLE CASE STUDY – plně namespacované, aby nic jinde nerozbíjely === */
+.case-studies { margin-top: 60px; }
+
+.case-studies .stage-title { text-align: center; }
+.case-studies .stage-intro { text-align: center; color:#666; margin-bottom: 32px; }
+
+/* karta případovky */
+.case-studies .case-card {
   background: #fff;
   border-radius: 14px;
   padding: 28px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   transition: transform .3s ease, box-shadow .3s ease;
+  border: 1px solid #eef1f4;
 }
-.case-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
+.case-studies .case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
 
-.case-card--single .case-head { display:flex; align-items:center; gap:12px; justify-content: space-between; flex-wrap: wrap; }
-.case-card--single h4 { font-size: 1.25rem; margin: 0; color:#1a1a1a; }
-.case-card--single .lead { margin-top: 10px; margin-bottom: 18px; color:#444; }
+/* head */
+.case-studies .case-card--single .case-head {
+  display:flex; align-items:center; gap:12px; justify-content: space-between; flex-wrap: wrap;
+  padding-bottom: 10px; border-bottom: 1px solid #e9ecef;
+}
+.case-studies .case-card--single h4 { font-size: 1.25rem; margin: 0; color:#1a1a1a; font-weight: 800; }
+.case-studies .case-card--single .lead { margin-top: 10px; margin-bottom: 18px; color:#444; }
 
-.badge.badge-case {
-  background: #0f6a52; /* tmavší zelená */
+/* badge */
+.case-studies .badge.badge-case {
+  background: #0f6a52;
   color: #fff;
   font-size: .75rem;
   padding: 6px 12px;
@@ -1117,45 +1138,74 @@ footer {
   letter-spacing: .5px;
 }
 
-.case-subgrid {
+/* subgrid */
+.case-studies .case-subgrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
   margin-top: 12px;
 }
 @media (min-width: 780px) {
-  .case-subgrid { grid-template-columns: repeat(3, 1fr); }
+  .case-studies .case-subgrid { grid-template-columns: repeat(3, 1fr); }
 }
 
-.case-subblock {
+/* subbloky */
+.case-studies .case-subblock {
   border: 1px solid #e9ecef;
   border-radius: 12px;
   padding: 18px;
   background: #fafafa;
   transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
 }
-.case-subblock:hover {
+.case-studies .case-subblock:hover {
   background:#fff;
   box-shadow: 0 8px 18px rgba(0,0,0,0.08);
   transform: translateY(-3px);
 }
-
-.case-subhead h5 {
+.case-studies .case-subhead h5 {
   font-size: 1rem;
   margin: 0 0 6px 0;
   color:#1e293b;
 }
-.case-meta { font-weight: 500; color:#333; margin-bottom: 8px; }
-.case-desc { color:#666; font-size:.95rem; line-height:1.5; }
-
-.chip {
+.case-studies .case-meta { font-weight: 500; color:#333; margin-bottom: 8px; }
+.case-studies .case-desc { color:#666; font-size:.95rem; line-height:1.5; }
+.case-studies .chip {
   display:inline-block;
   margin-top:10px;
   font-size:.72rem;
   padding:5px 10px;
   border-radius:999px;
-  background:#e6f2ee; /* světlá zelená */
+  background:#e6f2ee;
   color:#0f6a52;
   font-weight:600;
   letter-spacing:.2px;
+}
+
+/* Reset možných globálních konfliktů uvnitř case-studies */
+.case-studies h4,
+.case-studies h5 {
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+/* nech tohle jako tmavý overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* přesun „blob“ efektu na ::after */
+.hero::after {
+  content:"";
+  position:absolute; inset:-20%;
+  background:
+    radial-gradient(40% 40% at 20% 30%, rgba(50,182,122,.25), transparent 60%),
+    radial-gradient(35% 35% at 80% 20%, rgba(0,123,255,.22), transparent 60%),
+    radial-gradient(30% 30% at 60% 80%, rgba(111,66,193,.18), transparent 60%);
+  filter: blur(30px);
+  animation: heroFloat 18s linear infinite;
+  pointer-events: none;
 }
