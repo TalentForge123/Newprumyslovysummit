@@ -1209,6 +1209,10 @@ footer {
   animation: heroFloat 18s linear infinite;
   pointer-events: none;
 }
+.program-section {
+  padding-bottom: 100px; /* nebo třeba 80px */
+}
+
 /* === WORKSHOPY & PŘÍPADOVKY (Stage 2) – namespacované === */
 .workshop-section {
   background: #000;
