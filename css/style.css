@@ -1649,4 +1649,30 @@ footer {
   .workshop-section .workshop-card { padding: 30px 24px; }
   .workshop-section .sub-cases { grid-template-columns: 1fr; }
 }
+/* Hyundai + Citfin jako bílé karty */
+.sub-case.hyundai,
+.sub-case.citfin,
+.sub-case.dark.hyundai,
+.sub-case.dark.citfin {
+  background: #fff !important;
+  color: #111 !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
 
+/* Nadpisy a text */
+.sub-case.hyundai h5,
+.sub-case.citfin h5,
+.sub-case.hyundai p,
+.sub-case.citfin p {
+  color: #111 !important;
+}
+
+/* Čas a badge v tmavé (čitelné) variantě */
+.sub-case.hyundai .workshop-time,
+.sub-case.citfin .workshop-time,
+.sub-case.hyundai .workshop-badge,
+.sub-case.citfin .workshop-badge {
+  color: #111 !important;
+  background: rgba(0,0,0,.06) !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
