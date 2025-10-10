@@ -1343,3 +1343,17 @@ footer {
   .workshop-section .workshop-card { padding: 30px 24px; }
   .workshop-section .sub-cases { grid-template-columns: 1fr; }
 }
+/* Workshopy přes celou šířku stránky */
+.workshop-section {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  width: 100vw;          /* celá šířka viewportu */
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;    /* zarovnání k okrajům */
+  margin-right: -50vw;
+  box-sizing: border-box;
+    }
