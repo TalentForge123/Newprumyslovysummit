@@ -1209,3 +1209,133 @@ footer {
   animation: heroFloat 18s linear infinite;
   pointer-events: none;
 }
+/* === WORKSHOPY & PŘÍPADOVKY (Stage 2) – namespacované === */
+.workshop-section {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+.workshop-section h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.workshop-section .workshop-intro {
+  font-size: 1.2rem;
+  color: #bfbfbf;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+/* Hlavní případová studie */
+.workshop-section .workshop-main {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+.workshop-section .workshop-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: left;
+  color: #fff;
+  font-weight: 500;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.workshop-section .workshop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+}
+.workshop-section .workshop-card h3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.workshop-section .workshop-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.workshop-section .workshop-card p {
+  font-size: .95rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,.92);
+}
+.workshop-section .workshop-number {
+  font-size: 3rem;
+  font-weight: 900;
+  opacity: .15;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+
+/* Sub-bloky v rámci případovky */
+.workshop-section .sub-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+.workshop-section .sub-case {
+  border-radius: 10px;
+  padding: 20px;
+  color: #000;
+  transition: transform .3s ease, box-shadow .3s ease;
+  border: 1px solid rgba(0,0,0,.06);
+}
+.workshop-section .sub-case:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.workshop-section .sub-case h5 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color:#111;
+}
+
+/* Brand barvy */
+.workshop-section .workshop-card.green { background-color: #32b67a; }   /* brand zelená */
+.workshop-section .workshop-card.beige { background-color: #C3A375; color: #000; } /* kartonová */
+.workshop-section .workshop-card.dark  { background-color: #1e1e1e; }
+
+.workshop-section .sub-case.beige { background-color: #C3A375; }
+.workshop-section .sub-case.dark  { background-color: #1e1e1e; color:#fff; }
+
+/* Badge (používá stávající .badge, jen jemné doladění uvnitř sekce) */
+.workshop-section .badge {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .8rem;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.workshop-section .workshop-card.beige .badge {
+  background: rgba(0,0,0,.15);
+  color: #000;
+}
+
+/* Grid pro „Další workshopy“ */
+.workshop-section .workshop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 30px;
+}
+
+/* Responsivita */
+@media (max-width: 768px) {
+  .workshop-section h2 { font-size: 2.2rem; }
+  .workshop-section .workshop-card { padding: 30px 24px; }
+  .workshop-section .sub-cases { grid-template-columns: 1fr; }
+}
