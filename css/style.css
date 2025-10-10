@@ -1386,3 +1386,32 @@ footer {
 .workshop-section .sub-case.dark p {
   color: #fff;
 }
+/* === Úprava textů uvnitř sekce Workshopy & případové studie === */
+
+/* Základní barva textu uvnitř workshopových karet */
+.workshop-section .workshop-card,
+.workshop-section .workshop-card h3,
+.workshop-section .workshop-card h4,
+.workshop-section .workshop-card p,
+.workshop-section .workshop-card .sub-case,
+.workshop-section .workshop-card .sub-case h5,
+.workshop-section .workshop-card .sub-case p {
+  color: #111 !important;
+}
+
+/* Výjimka – tmavá sub-case (např. Hyundai) zůstává bílá */
+.workshop-section .sub-case.dark {
+  background: #1e1e1e;
+  color: #fff !important;
+}
+.workshop-section .sub-case.dark h5,
+.workshop-section .sub-case.dark p {
+  color: #fff !important;
+}
+
+/* Pro jistotu, ať badge i čas zůstanou bílé */
+.workshop-section .workshop-time,
+.workshop-section .badge {
+  color: #fff !important;
+}
+
