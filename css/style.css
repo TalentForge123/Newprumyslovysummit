@@ -1357,3 +1357,32 @@ footer {
   margin-right: -50vw;
   box-sizing: border-box;
     }
+/* Čas místo čísla */
+.workshop-section .workshop-time {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+/* Aby badge „Workshop“ byla bílá */
+.workshop-section .badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+}
+
+/* Hyundai čitelnost – přebarvit text na bílý */
+.workshop-section .sub-case.dark {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+.workshop-section .sub-case.dark h5,
+.workshop-section .sub-case.dark p {
+  color: #fff;
+}
