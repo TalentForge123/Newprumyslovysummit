@@ -1414,4 +1414,109 @@ footer {
 .workshop-section .badge {
   color: #fff !important;
 }
+/* === Všechny texty v sekci Workshopy & případové studie černé === */
+
+/* Obecné texty */
+.workshop-section .workshop-card,
+.workshop-section .workshop-card h3,
+.workshop-section .workshop-card h4,
+.workshop-section .workshop-card p,
+.workshop-section .workshop-card .sub-case,
+.workshop-section .workshop-card .sub-case h5,
+.workshop-section .workshop-card .sub-case p {
+  color: #111 !important;
+}
+
+/* Čas – větší, tučný, černý */
+.workshop-section .workshop-time {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111 !important;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* Badge „Workshop“ – černý text, jemné pozadí */
+.workshop-section .badge {
+  background: rgba(0, 0, 0, 0.05);
+  color: #111 !important;
+  font-weight: 700;
+  border: 1px solid rgba(0,
+/* Tmavá sub-case (Hyundai) – zůstává bílá */
+.workshop-section .sub-case.dark {
+  background: #1e1e1e;
+  color: #fff !important;
+}
+.workshop-section .sub-case.dark h5,
+.workshop-section .sub-case.dark p {
+  color: #fff !important;
+}
+/* === WORKSHOPY & PŘÍPADOVÉ STUDIE – barevné doladění === */
+
+/* Všechny běžné karty – černý text */
+.workshop-section .workshop-card,
+.workshop-section .workshop-card h3,
+.workshop-section .workshop-card h4,
+.workshop-section .workshop-card p,
+.workshop-section .workshop-card .sub-case,
+.workshop-section .workshop-card .sub-case h5,
+.workshop-section .workshop-card .sub-case p {
+  color: #111 !important;
+}
+
+/* Čas – větší, tučný, černý na světlém pozadí */
+.workshop-section .workshop-time {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111 !important;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* Badge „Workshop“ – černý text, decentní pozadí */
+.workshop-section .badge {
+  background: rgba(0, 0, 0, 0.05);
+  color: #111 !important;
+  font-weight: 700;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* === Tmavé karty (Hyundai, Citfin) – bílé písmo === */
+.workshop-section .sub-case.dark,
+.workshop-section .sub-case.dark h5,
+.workshop-section .sub-case.dark p {
+  color: #fff !important;
+}
+
+.workshop-section .sub-case.dark .workshop-time,
+.workshop-section .sub-case.dark .badge {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Specificky označíme i Citfin, pokud má vlastní třídu */
+.workshop-section .sub-case.citfin {
+  background: #1e1e1e;
+  color: #fff !important;
+}
+.workshop-section .sub-case.citfin h5,
+.workshop-section .sub-case.citfin p {
+  color: #fff !important;
+}
+.workshop-section .sub-case.citfin .badge,
+.workshop-section .sub-case.citfin .workshop-time {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 
