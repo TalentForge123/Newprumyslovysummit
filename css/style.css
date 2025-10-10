@@ -1613,7 +1613,7 @@ footer {
 /* Brand barvy */
 .workshop-section .workshop-card.green { background-color: #32b67a; }   /* brand zelená */
 .workshop-section .workshop-card.beige { background-color: #C3A375; color: #000; } /* kartonová */
-.workshop-section .workshop-card.dark  { background-color: #1e1e1e; }
+.workshop-section .workshop-card.dark  { background-color: #fff; }
 
 .workshop-section .sub-case.beige { background-color: #C3A375; }
 .workshop-section .sub-case.dark  { background-color: #1e1e1e; color:#fff; }
