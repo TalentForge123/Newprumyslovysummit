@@ -1487,13 +1487,7 @@ footer {
   color: #111 !important;
   font-weight: 700;
   border: 1px solid rgba(0, 0, 0, 0.08);
-}
 
-/* === Tmavé karty (Hyundai, Citfin) – bílé písmo === */
-.workshop-section .sub-case.dark,
-.workshop-section .sub-case.dark h5,
-.workshop-section .sub-case.dark p {
-  color: #fff !important;
 }
 
 .workshop-section .sub-case.dark .workshop-time,
