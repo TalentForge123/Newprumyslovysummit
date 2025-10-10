@@ -1616,7 +1616,7 @@ footer {
 .workshop-section .workshop-card.dark  { background-color: #fff; }
 
 .workshop-section .sub-case.beige { background-color: #C3A375; }
-.workshop-section .sub-case.dark  { background-color: #1e1e1e; color:#fff; }
+.workshop-section .sub-case.dark  { background-color: #fff; color:#fff; }
 
 /* Badge (používá stávající .badge, jen jemné doladění uvnitř sekce) */
 .workshop-section .badge {
