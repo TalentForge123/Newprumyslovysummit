@@ -1,3 +1,267 @@
+<style>
+/* ZDE ZAČÍNÁ CSS S MAXIMÁLNÍ SPECIFICKOU SILOU PRO OPRAVU FOOTERU A PARTNERŮ */
+:root {
+    --primary-color: #32B67A;
+    --secondary-color: #000000;
+    --accent-color: #32B67A;
+    --text-color: #333333;
+    --light-text: #ffffff;
+    --dark-bg: #000000;
+    --light-bg: #f5f5f5;
+    --gray-bg: #e9e9e9;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* Navigation - Hero - Speakers - Tracks - Program - ponecháno pro zachování funkčnosti */
+
+.agenda-grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Pevné 2 sloupce pro desktop */
+    gap: 30px;
+}
+
+.agenda-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
+    padding: 16px 18px;
+    border-left: 4px solid transparent;
+}
+
+.agenda-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Workshop Section (Stage 2) */
+.workshop-column {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 30px; 
+    border-radius: 16px;
+    margin-top: -30px; 
+}
+.workshop-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff; /* Zajistí bílý text na tmavém pozadí */
+}
+.workshop-card h4 {
+    color: #fff;
+}
+.workshop-card.green, .workshop-card.beige {
+    color: #000;
+}
+
+
+/* Sponsors Section (Partneři) - KLÍČOVÉ OPRAVY */
+
+.verticals-grid {
+    display: grid;
+    /* Opraveno: 4 sloupce na desktopu */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.partner-item {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    flex-direction: row !important; /* Vynucení řádkového zobrazení na desktopu */
+}
+
+.partner-level {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #4b5563;
+    white-space: nowrap;
+    max-width: 40%;
+    /* Zajištění, že se text neukládá pod sebe na desktopu */
+    min-width: 100px;
+}
+
+.partner-logo-placeholder {
+    justify-content: flex-end;
+    min-width: 60%;
+}
+
+/* Footer - KLÍČOVÉ OPRAVY */
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    min-width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 40px;
+    justify-content: flex-start;
+    width: auto;
+}
+/* Konec sekce Base CSS */
+
+/* ================================================= */
+/* RESPONZIVNÍ STYLY - VYNUCENÍ MOBILNÍHO ZOBRAZENÍ */
+/* ================================================= */
+
+@media (max-width: 968px) {
+    .agenda-grid { 
+        grid-template-columns: 1fr;
+    }
+    .workshop-column {
+        margin-top: 30px; 
+        padding-top: 30px;
+    }
+    .verticals-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Footer: Přechod na 2 sloupce na tabletu */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-logo {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .footer-links {
+        flex-direction: row !important; /* Vynutit 2 sloupce */
+        justify-content: space-around !important;
+        width: 100%;
+        gap: 20px;
+    }
+    .footer-nav, .social-links {
+        text-align: left; 
+        align-items: flex-start;
+        width: 45%; 
+    }
+}
+
+@media (max-width: 560px) {
+    /* Agenda - Zalomení řečníka a firmy */
+    .agenda-meta {
+        flex-direction: column !important; 
+        align-items: flex-start !important;
+        gap: 0;
+    }
+    .agenda-meta .divider {
+        display: none !important; 
+    }
+
+    /* Footer: Zpět na 1 sloupec pro nejmenší telefony */
+    .footer-links {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .footer-nav, .social-links {
+        text-align: center !important;
+        align-items: center !important;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Partneři: Vynutit skládání pod sebe */
+    .partner-item {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .partner-level {
+        order: 2; 
+        margin-top: 5px;
+        max-width: 100%;
+    }
+    .partner-logo-placeholder {
+        order: 1; 
+        justify-content: center;
+        margin-bottom: 0;
+        min-width: 100%;
+    }
+}
+</style>
 </head>
     
 <script src="js/script.js"></script>     
@@ -400,563 +664,4 @@ document.addEventListener('DOMContentLoaded', function() {
 <article class="agenda-item talk" data-time="09:30–09:45">
   <div class="agenda-time">09:30–09:45</div>
   <div class="agenda-body">
-    <h4 class="agenda-title">Od tradiční výroby k datové továrně: Realita digitální transformace.</h4>
-    <div class="agenda-meta"><span class="speaker">Milan Šlachta</span><span class="divider">•</span><span class="company">Bosch Group </span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="9:45–10:00">
-  <div class="agenda-time">9:45–10:00</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Jak Model Group mění výrobu pomocí dat: Konkrétní zkušenosti s řízením české pobočky.</h4>
-    <div class="agenda-meta"><span class="speaker">Josef Chalupný</span><span class="divider">•</span><span class="company">Model Group</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="10:00–10:10">
-  <div class="agenda-time">10:00–10:10</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Umělé inteligence a budoucnost českého průmyslu.</h4>
-    <div class="agenda-meta"><span class="speaker">Lukáš Benzl</span><span class="divider">•</span><span class="company">Česká asociace umělé inteligence</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="10:10–10:25">
-  <div class="agenda-time">10:10–10:25</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Umělá inteligence v českém průmyslu: Kde jsme a jak zrychlit?</h4>
-    <div class="agenda-meta"><span class="speaker">Ondřej Vaněk</span><span class="divider">•</span><span class="company">Adastra</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="10:25–10:35">
-  <div class="agenda-time">10:25–10:35</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Inženýring pro novou energetiku: Digitalizace, bezpečnost, výkon.</h4>
-    <div class="agenda-meta"><span class="speaker">Jaromír Kříž</span><span class="divider">•</span><span class="company">Bilfinger</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="10:35–10:45">
-  <div class="agenda-time">10:35–10:45</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Digitalizace energetiky v průmyslu: Jak přejít od faktur k reálné úspoře spotřeby?</h4>
-    <div class="agenda-meta"><span class="speaker">Ivan Macho</span><span class="divider">•</span><span class="company">PKV</span></div>
-  </div>
-</article>
-
-<article class="agenda-item panel" data-time="10:45–11:15">
-  <div class="agenda-time">10:45–11:15</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Panelová diskuze: Women leadership. </h4>
-        <div class="agenda-meta"><span class="speaker">J. Kafková, B. Rosová, G. Hrbáčková</span></div>
-    <span class="badge badge-panel">Panelový moderátor: Jiří Kastner </span>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="11:15–11:30">
-  <div class="agenda-time">11:15–11:30</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Principy transformace: změna chování, nejen technologií.</h4>
-    <div class="agenda-meta"><span class="speaker">Tomáš Kopecký</span><span class="divider">•</span><span class="company">FranklinCovey</span></div>
-  </div>
-</article>
-
-          <article class="agenda-item panel" data-time="11:30–12:15">
-  <div class="agenda-time">11:30–12:15</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Panelová diskuze: Co znamená být „digitally ready“ v roce 2025?</h4>
-    <div class="agenda-meta"><span class="speaker">J. Pelant, O. Vaňek, M. Šlachta, J. Kříž, J. Chalupný</span></div>
-    <span class="badge badge-panel">Panelová moderátorka: Silvia Ritter</span>
-  </div>
-</article>
-
-
-<article class="agenda-item break lunch" data-time="12:00–13:00">
-  <div class="agenda-time">12:00–13:00</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Oběd &amp; Networking</h4>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="13:00–13:15">
-  <div class="agenda-time">13:00–13:15</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Industry 4.0 po pěti letech: Co se skutečně změnilo?</h4>
-    <div class="agenda-meta"><span class="speaker">Vladislav Němec</span><span class="divider">•</span><span class="company">ifm electronic</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="13:15–13:30">
-  <div class="agenda-time">13:15–13:30</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Financování exportu: Jak podpořit expanzi a kapitál</h4>
-    <div class="agenda-meta"><span class="speaker">Miroslav Stříbrný</span><span class="divider">•</span><span class="company">Česká exportní banka</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="13:30–13:45">
-  <div class="agenda-time">13:30–13:45</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Devizové trhy a jejich výzvy pro průmyslové podniky.</h4>
-    <div class="agenda-meta"><span class="speaker">Miroslav Novák</span><span class="divider">•</span><span class="company">Citfin</span></div>
-    </div>
-</article>
-
-<article class="agenda-item talk" data-time="13:45–14:00">
-  <div class="agenda-time">13:45–14:00</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Současné trendy v chlazení datových center pro průmysl.</h4>
-    <div class="agenda-meta"><span class="speaker">Lukáš Dvořák</span><span class="divider">•</span><span class="company">Conteg</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="14:00–14:15">
-  <div class="agenda-time">14:00–14:15</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Bezpečný export: Cesta na zahraniční trhy bez zbytečných rizik a ztrát.</h4>
-    <div class="agenda-meta"><span class="speaker">Michal Janků</span><span class="divider">•</span><span class="company">EGAP</span></div>
-  </div>
-</article>
-
-<article class="agenda-item talk" data-time="14:15–14:30">
-  <div class="agenda-time">14:15–14:30</div>
-  <div class="agenda-body">
-    <h4 class="agenda-title">Průmyslová bezpečnost a udržitelnost s detekcí plynů.</h4>
-    <div class="agenda-meta"><span class="speaker">Oldřich Kotyza</span><span class="divider">•</span><span class="company">Dräger</span></div>
-  </div>
-</article>
-
-        </div>
-      </div>
-
-      <div class="agenda-column workshop-column">
-        <h3 class="stage-title">Stage 2 – Workshopy & Případové studie</h3>
-        <p class="agenda-subtitle" style="text-align: left; margin-bottom: 25px; margin-top: -15px; font-size: 1rem; color: #a0a0a0;">
-          Reálné projekty z českého průmyslu a detailní případové studie.
-        </p>
-
-        <div class="workshop-grid"> 
-
-          <div class="workshop-card green full-width">
-            <div class="workshop-time time-top-right">13:00–14:00</div>
-            <h3>Adastra Group</h3> 
-            <h4>Nasazení moderních technologií v praxi</h4>
-            <p>Jak v Adastře zavádíme umělou inteligenci do reálného provozu.
-            </p>
-            <div class="workshop-footer">
-              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Moderuje: I. Karhanová, Hosté: J. Slavík, A. Heider</div>
-            </div>
-            <p class="sub-cases-text">Zahrnuté případové studie: BEDNAR FMT, Hyundai Motor Manufacturing Czech.</p>
-          </div>
-
-          <div class="workshop-card beige">
-            <div class="workshop-time time-top-right">14:00–14:15</div>
-            <h3>MUNIPOLIS</h3>
-            <h4>Konec firemního šumu</h4>
-            <p>Interní komunikace, která spojuje lidi i cíle.</p>
-            <div class="workshop-footer">
-              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Ondřej Švrček</div>
-            </div>
-          </div>
-
-          <div class="workshop-card green">
-            <div class="workshop-time time-top-right">14:15–15:00</div>
-            <h3>GAUSS ALGORITHMIC</h3>
-            <h4>Automatizace přípravy cenových nabídek.</h4>
-            <p>Na základě získaných dat.</p>
-            <div class="workshop-footer">
-              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Johny Darkwah</div>
-            </div>
-          </div>
-
-          <div class="workshop-card beige">
-            <div class="workshop-time time-top-right">15:00–16:00</div>
-            <h3>FranklinCovey</h3>
-            <h4>Principy transformace v praxi</h4>
-            <p>Jak sladit vedení a pracovat s cíli.</p>
-            <div class="workshop-footer">
-              <div class="badge badge-workshop">WORKSHOP | Tomáš Kopecký</div>
-            </div>
-          </div>
-          
-          <div class="workshop-card green">
-            <div class="workshop-time time-top-right">16:00–16:30</div>
-            <h3>Citfin</h3>
-            <h4>Měnový forward, zajištění pro průmyslové firmy</h4>
-            <p>Jak se připravit na volatilitu měn v průmyslovém exportu.</p>
-            <div class="workshop-footer">
-              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Miroslav Fisher, Tomáš Klikar</div>
-            </div>
-          </div>
-
-          <div class="workshop-card break networking beige full-width">
-            <div class="workshop-time time-top-right">16:30–Konec</div>
-            <h3>Networking a závěr</h3>
-            <p>Oficiální konec programu, prostor pro volné diskuse a navazování kontaktů.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="sponsors" class="sponsors-section">
-  <div class="container">
-    <h2>PARTNEŘI</h2>
-
-      <div class="exclusive-partner">
-  <h3>EXKLUZIVNÍ BRANDINGOVÝ PARTNER</h3>
-  <div class="exclusive-logo">
-    <img src="images/sponsors-logos/MODEL_Logo-319x319.png" alt="Model Obaly">
-  </div>
-</div>
-
-    <div class="sponsors-intro">
-      <h3>Partneři podle odborných vertikál</h3>
-      <p>Naše partnerská síť propojuje lídry průmyslu, technologické inovátory a hráče v jednotlivých sektorech. Každá vertikála má partnery rozdělené do tří úrovní:</p>
-
-      <div class="partner-levels-info">
-        <div class="level-info">
-          <div class="level-badge main">Hlavní partner</div>
-          <p>Výrazná značka zastupující danou oblast v rámci celé platformy a eventů</p>
-        </div>
-        <div class="level-info">
-          <div class="level-badge tech">Technologický partner</div>
-          <p>Dodavatel špičkových technologií, produktů nebo řešení</p>
-        </div>
-        <div class="level-info">
-          <div class="level-badge strategic">Strategický partner</div>
-          <p>Dlouhodobý odborný partner s vlivem v oboru</p>
-        </div>
-      </div>
-    </div>
-      
-    <div class="verticals-grid">
-
-      <div class="vertical-block">
-  <div class="vertical-header">
-    <div class="vertical-icon">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <h4>AI, Data & Kyberbezpečnost, Ecom</h4>
-  </div>
-
-  <div class="partners-list">
-    <div class="partner-item main-partner"
-           title="Výrazná značka zastupující danou oblast v rámci celé platformy a eventů">
-      <span class="partner-level">Hlavní partner</span>
-      <div class="partner-logo-placeholder">
-        <img src="images/sponsors-logos/adastra-logo-footer-red-png.png" alt="Adastra">
-      </div>
-    </div>
-
-    <div class="partner-item technologicky-partner"
-           title="Dodavatel špičkových technologií, produktů nebo řešení">
-      <span class="partner-level">Technologický partner</span>
-      <div class="partner-logo-placeholder">
-        <img src="images/sponsors-logos/ai-tech-partner.png" alt="One by Allegro">
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-      <div class="vertical-block">
-        <div class="vertical-header">
-          <div class="vertical-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17 21V19A4 4 0 0 0 13 15H5A4 4 0 0 0 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-              <path d="M23 21V19A4 4 0 0 0 16.5 15.91" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 3.13A4 4 0 0 1 16 11.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h4>Automotive & Mobilita</h4>
-        </div>
-
-        <div class="partners-list">
-          <div class="partner-item main-partner"
-                title="Výrazná značka zastupující danou oblast v rámci celé platformy a eventů">
-            <span class="partner-level">Hlavní partner</span>
-            <div class="partner-logo-placeholder">
-              <img src="images/sponsors-logos/automotive-partner.png" alt="Bosch">
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <div class="vertical-block">
-  <div class="vertical-header">
-    <div class="vertical-icon">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <h4>Energetika & Udržitelnost</h4>
-  </div>
-
-  <div class="partners-list">
-    <div class="partner-item main-partner"
-           title="Výrazná značka zastupující danou oblast v rámci celé platformy a eventů">
-      <span class="partner-level">Hlavní partner</span>
-      <div class="partner-logo-placeholder">
-        <img src="images/sponsors-logos/energy-main-partner.png" alt="Bilfinger">
-      </div>
-    </div>
-      
-    <div class="partner-item technologicky-partner"
-           title="Dlouhodobý odborný partner s vlivem v oboru">
-      <span class="partner-level">Technologický partner</span>
-      <div class="partner-logo-placeholder">
-        <img src="images/sponsors-logos/draeger-logo.png" alt="Dräger">
-      </div>
-    </div>
-
-    <div class="partner-item strategicky-partner"
-           title="Dlouhodobý odborný partner s vlivem v oboru">
-      <span class="partner-level">Strategický partner</span>
-      <div class="partner-logo-placeholder">
-        <img src="images/sponsors-logos/excor zerust-logo__Kreslicí plátno 1.png" alt="Excor Zerust">
-      </div>
-    </div>
-  </div>
-</div>
-
-    <div class="vertical-block">
-  <div class="vertical-header">
-    <div class="vertical-icon">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
-        <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
-        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
-      </svg>
-    </div>
-    <h4>Výroba & Automatizace</h4>
-  </div>
-
-  <div class="partners-list">
-    <div class="partner-item technologicky-partner"
-           title="Dodavatel špičkových technologií, produktů nebo řešení">
-      <span class="partner-level">Technologický partner</span>
-      <div class="partner-logo-placeholder">
-        <img src="images/sponsors-logos/manufacturing-tech-partner.png" alt="Ifm electronic">
-      </div>
-    </div>
-
-  <div class="partner-item technologicky-partner conteg"
-           title="Dodavatel špičkových technologií, produktů nebo řešení">
-  <span class="partner-level">Technologický partner</span>
-  <div class="partner-logo-placeholder">
-    <img src="images/sponsors-logos/conteg.png" alt="Conteg">
-  </div>
-</div>
-</div>
-          </div>
-  </div>
-</section>
-    
-<section class="supporting-partners">
-    <div class="container">
-        <h2>Podporovatelé</h2>
-        <p>Děkujeme našim partnerům a podporovatelům za jejich cennou spolupráci!</p>
-
-        <div class="logo-carousel-row" dir="ltr">
-            <div class="logo-track-left">
-                <img loading="lazy" src="images/sponsors-logos/konica%20minolta%20-logo.png" alt="Konica Minolta">
-                <img loading="lazy" src="images/sponsors-logos/gimatic.png" alt="Gimatic">
-                <img loading="lazy" src="images/sponsors-logos/ENVI_TRAIL-logo_black.png" alt="ENVI TRAIL">
-                <img loading="lazy" src="images/sponsors-logos/alsico_logo.png" alt="Alsico">
-                <img loading="lazy" src="images/sponsors-logos/greycortex-logo.png" alt="GREYCORTEX">
-                <img loading="lazy" src="images/sponsors-logos/logo.mat.png" alt="MAT">
-                <img loading="lazy" src="images/sponsors-logos/bfs_logo.jpg" alt="BFS">
-                <img loading="lazy" src="images/sponsors-logos/ABRA_logo.png" alt="ABRA">
-                
-                <img loading="lazy" src="images/sponsors-logos/konica%20minolta%20-logo.png" alt="Konica Minolta">
-                <img loading="lazy" src="images/sponsors-logos/gimatic.png" alt="Gimatic">
-                <img loading="lazy" src="images/sponsors-logos/ENVI_TRAIL-logo_black.png" alt="ENVI TRAIL">
-                <img loading="lazy" src="images/sponsors-logos/alsico_logo.png" alt="Alsico">
-                <img loading="lazy" src="images/sponsors-logos/greycortex-logo.png" alt="GREYCORTEX">
-                <img loading="lazy" src="images/sponsors-logos/logo.mat.png" alt="MAT">
-                <img loading="lazy" src="images/sponsors-logos/bfs_logo.jpg" alt="BFS">
-                <img loading="lazy" src="images/sponsors-logos/ABRA_logo.png" alt="ABRA">
-            </div>
-        </div>
-
-        <div class="logo-carousel-row" dir="rtl">
-            <div class="logo-track-right">
-                <img loading="lazy" src="images/sponsors-logos/Citfin_logo_light.jpg" alt="CITFIN">
-                <img loading="lazy" src="images/sponsors-logos/česká.png" alt="čeb">
-                <img loading="lazy" src="images/sponsors-logos/detomatic.png" alt="detomatic">
-                <img loading="lazy" src="images/sponsors-logos/franklin.png" alt="franklin">
-                <img loading="lazy" src="images/sponsors-logos/dynamicstream.png" alt="dynamic">
-                <img loading="lazy" src="images/sponsors-logos/gauss.svg" alt="gaus">
-                <img loading="lazy" src="images/sponsors-logos/pkv.svg" alt="pkv">
-                <img loading="lazy" src="images/sponsors-logos/konica%20minolta%20-logo.png" alt="Konica Minolta">
-                
-                <img loading="lazy" src="images/sponsors-logos/Citfin_logo_light.jpg" alt="CITFIN">
-                <img loading="lazy" src="images/sponsors-logos/česká.png" alt="čeb">
-                <img loading="lazy" src="images/sponsors-logos/detomatic.png" alt="detomatic">
-                <img loading="lazy" src="images/sponsors-logos/franklin.png" alt="franklin">
-                <img loading="lazy" src="images/sponsors-logos/dynamicstream.png" alt="dynamic">
-                <img loading="lazy" src="images/sponsors-logos/gauss.svg" alt="gaus">
-                <img loading="lazy" src="images/sponsors-logos/pkv.svg" alt="pkv">
-                <img loading="lazy" src="images/sponsors-logos/konica%20minolta%20-logo.png" alt="Konica Minolta">
-            </div>
-        </div>
-    </div>
-</section>
-
-        <div class="partnership-cta">
-            <div class="cta-content">
-                <h3>Chcete být součástí?</h3>
-                <p>Hledáme partnery pro další odborné sekce. Staňte se součástí platformy, která propojuje obsah, eventy i inovace.</p>
-                <div class="cta-buttons">
-                    <a href="images/Průmyslový Summit 2025.pdf" class="btn-primary" download>Stáhnout nabídku partnerství</a>
-                    <a href="mailto:urbanova@svetprumyslu.cz" class="btn-secondary">Kontaktujte nás</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="faq" class="faq-section">
-    <div class="container">
-        <h2>Často kladené otázky (FAQ)</h2>
-        
-        <div class="faq-item">
-            <h3>Co čekat na Průmyslovém Summitu 2025?</h3>
-            <p>Průmyslový Summit je místem, kde se potkává budoucnost výroby, technologií a leadershipu. Připravte se na den plný inspirace, konkrétních případových studií a nových obchodních příležitostí.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Pro koho je Průmyslový Summit 2025 určen?</h3>
-            <p>Průmyslový Summit je místem pro ty, kteří chtějí být o krok napřed. Pokud vám záleží na budoucnosti výroby, technologií a lidí ve firmách, tahle akce je přesně pro vás.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Kdo se účastní?</h3>
-            <p>Výrobní a průmyslové firmy. CEO, CTO, CFO, CPO – vedení firem hledající strategické impulsy. Ředitelé závodů, technických úseků a digitalizačních projektů. Odborníci na výrobu, logistiku, kvalitu a údržbu. Technologické a IT společnosti – dodavatelé digitálních řešení, automatizace a AI. Vývojáři a systémoví integrátoři, produktoví manažeři a inovátori. HR & Leadership – HR ředitelé a talent acquisition manažeři. Lídři změn a kultury ve výrobních firmách. Specialisté na nábor, udržení a rozvoj zaměstnanců. Data, výzkum a strategie – data a BI specialisté. Analytici a konzultanti. Akademici a experti z výzkumných center.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Bude čas na networking?</h3>
-            <p>Ano, Průmyslový Summit je celodenní akce, která bude mít dostatek času na networking.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Zaznamenávají se sezení?</h3>
-            <p>Ano, všichni registrovaní účastníci získají přístup k nahrávkám po skončení konference. To vám umožní znovu se podívat na postřehy sdílené řečníky a zachytit jakékoli relace, které jste možná zmeškali.</p>
-        </div>
-
-    </div>
-</section>
-
-    
-    
-  <section id="register" class="registration-section">
-    <div class="container">
-        <div class="registration-container">
-            <div class="registration-header">
-                <h2>Chci na Průmyslový Summit 2025.</h2>
-            </div>
-
-            <div class="registration-link-container">
-                <a href="https://prumyslovysummit.enigoo.cz/app/tickets/events" 
-                    target="_blank" 
-                    class="registration-link-full">
-                    <div class="registration-link-btn">
-                        Koupit vstupenku
-                    </div>
-                    <p class="registration-note">Kliknutím budete přesměrováni na enigoo.cz.</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>KONTAKT</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>Adresa</h3>
-                        <p>PVA EXPO PRAHA</p>
-                        <p>Beranových 667</p>
-                        <p>199 00 Praha 9</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>E-mail</h3>
-                        <p>sevcik@svetprumyslu.cz</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>Telefon</h3>
-                        <p>+420 775 233 232</p>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Napište nám</h3>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="contact-name">Jméno a příjmení</label>
-                            <input type="text" id="contact-name" name="contact-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">E-mail</label>
-                            <input type="email" id="contact-email" name="contact-email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-subject">Předmět</label>
-                            <input type="text" id="contact-subject" name="contact-subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-message">Zpráva</label>
-                            <textarea id="contact-message" name="contact-message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Odeslat zprávu</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>     
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#">Průmyslový Summit</a>
-                    <p>DATA. KONTAKTY. PARTNERSTVÍ.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-nav">
-                        <a href="#about">O summitu</a>
-                        <a href="#speakers">Řečníci</a>
-                        <a href="#program">Program</a>
-                        <a href="#sponsors">Partneři</a>
-                        <a href="#register">Registrace</a>
-                        <a href="#faq">FAQ</a>
-                        <a href="#contact">Kontakt</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-icon">LinkedIn</a>
-                        <a href="#" class="social-icon">Twitter</a>
-                        <a href="#" class="social-icon">Facebook</a>
-                        <a href="#" class="social-icon">Instagram</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Průmyslový Summit. Všechna práva vyhrazena.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
-</html>
+    <h4 class="agenda-title">Od tradiční výroby k
