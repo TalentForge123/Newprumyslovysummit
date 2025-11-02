@@ -1006,20 +1006,82 @@ section {
 .partner-item.strategicky-partner { border-left-color: #6f42c1; background: #f8f6fb; }
 
 
-.partner-level {
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #4b5563;
-    white-space: nowrap;
-    /* Vynucení prostoru, aby se logo vlezlo */
-    max-width: 40%;
-    min-width: 100px;
-}
+/* === PARTNEŘI – layout === */
+.sponsors-section { background:#fff; padding:80px 0; }
+.exclusive-partner { text-align:center; padding:24px 0; margin:0 0 40px; background:#f8f8f8; border:2px solid #e6e6e6; border-radius:12px; }
+.exclusive-partner h3 { font-size:1.2rem; margin-bottom:12px; color:#333; }
+.exclusive-logo img { max-width:220px; height:auto; }
 
-.partner-logo-placeholder {
-    /* Vynucení loga doprava */
-    justify-content: flex-end;
-    min-width: 60%;
+.sponsors-intro { margin-bottom:28px; text-align:center; }
+.partner-levels-info { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:16px; }
+.level-info { background:#fafafa; border:1px solid #eee; border-radius:10px; padding:14px; }
+.level-badge { display:inline-block; padding:7px 12px; border-radius:999px; font-weight:800; color:#fff; margin-bottom:8px; }
+.level-badge.main{ background:#28a745; } .level-badge.tech{ background:linear-gradient(90deg,#0a5be0,#007bff);} .level-badge.strategic{ background:linear-gradient(90deg,#6f42c1,#8a3bd3); }
+
+.verticals-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+.vertical-block { border:1px solid #e9ecef; border-radius:12px; padding:18px; background:#fff; }
+.vertical-header { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.vertical-icon { color:#32B67A; display:flex; }
+.vertical-block h4 { margin:0; font-size:1.08rem; color:#1f2937; }
+
+.partners-list { display:grid; grid-template-columns:1fr; gap:10px; }
+.partner-item { display:flex; align-items:center; gap:14px; justify-content:space-between; padding:12px 14px; border:1px solid #e6efe9; border-radius:10px; background:#f9fbf9; }
+.partner-level { font-size:.92rem; font-weight:600; color:#4b5563; }
+.partner-logo-placeholder { display:flex; align-items:center; justify-content:flex-end; min-height:44px; flex:1; }
+.partner-logo-placeholder img { max-height:38px; max-width:220px; width:auto; height:auto; object-fit:contain; }
+.partner-item.main-partner { border-left:4px solid #28a745; background:#f6fbf8; }
+.partner-item.technologicky-partner { border-left:4px solid #007bff; background:#f3f8fd; }
+.partner-item.strategicky-partner { border-left:4px solid #6f42c1; background:#f8f6fb; }
+
+/* === PODPOROVATELÉ – 2 řádky, plynulý posuv, bez zanoření === */
+.supporting-partners { padding:70px 0 50px; background:#fff; text-align:center; }
+.supporting-partners h2 { color:#2c3e50; margin-bottom:12px; }
+.supporting-partners p { color:#666; margin:0 0 24px; }
+
+.logo-carousel-row { position:relative; overflow:hidden; margin-bottom:22px; }
+.logo-track-left, .logo-track-right { --logo-gap:60px; display:inline-flex; align-items:center; gap:var(--logo-gap); will-change:transform; }
+.logo-track-left { animation:scroll-left 45s linear infinite; }
+.logo-track-right { animation:scroll-right 45s linear infinite; }
+@keyframes scroll-left { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes scroll-right{ 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+
+.logo-track-left img, .logo-track-right img {
+  max-height:60px; max-width:160px; width:auto; height:auto; object-fit:contain;
+  filter:grayscale(100%) opacity(.9); transition:filter .25s ease, transform .25s ease;
+}
+.logo-track-left img:hover, .logo-track-right img:hover { filter:grayscale(0%) opacity(1); transform:scale(1.05); }
+
+@media (prefers-reduced-motion: reduce) { .logo-track-left, .logo-track-right { animation:none; } }
+@media (max-width:640px){ .logo-track-left, .logo-track-right{ --logo-gap:36px; animation-duration:30s; } .logo-track-left img, .logo-track-right img{ max-height:46px; max-width:130px; } }
+
+.partnership-cta { margin-top:34px; }
+.partnership-cta .cta-content { border:1px solid #e9ecef; border-radius:12px; padding:22px; background:#fafafa; }
+.partnership-cta .cta-buttons { display:flex; gap:12px; justify-content:center; margin-top:12px; }
+.partnership-cta .btn-primary, .partnership-cta .btn-secondary { display:inline-block; padding:12px 18px; border-radius:8px; font-weight:700; text-decoration:none; }
+.partnership-cta .btn-primary { background:linear-gradient(135deg, var(--primary-color), #28a745); color:#fff; }
+.partnership-cta .btn-secondary { background:#000; color:#fff; }
+
+/* === FAQ – beze změny textu, jen vzhled === */
+.faq-section { background: var(--light-bg); padding:70px 0; }
+.faq-section h2 { color:#2c3e50; margin-bottom:18px; text-align:center; }
+.faq-item { background:#fff; border:1px solid #e8eef0; border-radius:12px; padding:18px; margin:10px 0; }
+.faq-item h3 { margin:0 0 8px; font-size:1.05rem; }
+.faq-item p { margin:0; color:#444; }
+
+/* === FOOTER – čistý grid, text beze změny === */
+.site-footer { background:#000; color:#fff; }
+.footer-container { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:20px; padding:50px 0 24px; }
+.footer-brand .footer-logo { color:#fff; font-size:1.4rem; font-weight:900; text-decoration:none; }
+.footer-brand p { margin-top:6px; color:rgba(255,255,255,.8); }
+.footer-nav, .footer-social { display:flex; flex-direction:column; gap:10px; }
+.footer-nav a, .footer-social a { color:#fff; text-decoration:none; }
+.footer-nav a:hover, .footer-social a:hover { color: var(--primary-color); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.12); padding:14px 0; text-align:center; color:rgba(255,255,255,.75); }
+
+@media (max-width:968px){
+  .partner-levels-info { grid-template-columns:1fr; }
+  .footer-container { grid-template-columns:1fr; text-align:center; }
+  .footer-nav, .footer-social { align-items:center; }
 }
 
 /* Footer - KLÍČOVÉ OPRAVY */
