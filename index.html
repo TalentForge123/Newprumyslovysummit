@@ -14,7 +14,7 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 <style>
-/* ZDE ZAČÍNÁ CSS ZE SOUBORU style.css (UPRAVENO PRO PARTNERY A FOOTER) */
+/* ZDE ZAČÍNÁ CSS ZE SOUBORU style.css (UPRAVENO PRO PARTNERY, FOOTER A WORKSHOPY) */
 :root {
     --primary-color: #32B67A;
     --secondary-color: #000000;
@@ -652,12 +652,13 @@ header {
 }
 
 .workshop-card {
-    background: rgba(255, 255, 255, 0.1);
+    position: relative;
     border-radius: 12px;
     padding: 20px;
     text-align: left;
-    position: relative;
     border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Původní styly z Vašeho kódu, jen upravené pozadí pro lepší viditelnost */
+    background: rgba(255, 255, 255, 0.1); 
 }
 
 .workshop-time.time-top-right {
@@ -689,7 +690,6 @@ header {
     margin-bottom: 10px;
 }
 .workshop-card .sub-cases-text {
-    font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.6);
     margin-top: 10px;
 }
@@ -702,65 +702,45 @@ header {
 .workshop-card.beige h3, .workshop-card.beige h4 { color: #000; }
 .workshop-card.beige p { color: rgba(0, 0, 0, 0.8); }
 
+/* Nový styl pro Button Case Study */
+.workshop-footer .badge {
+    /* Přemění badge na button */
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    
+    /* Barvy pro Case Study */
+    background-color: #fff;
+    color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Barvy pro Case Study (zelené/béžové pozadí) */
+.workshop-card.green .workshop-footer .badge {
+    background-color: #000;
+    color: #fff;
+}
+.workshop-card.beige .workshop-footer .badge {
+    background-color: #000;
+    color: #fff;
+}
+
 /* Workshop Footer */
 .workshop-footer { margin-top: 10px; }
 
 
-/* Sponsors Section (Partneři) - ÚPRAVY ZDE */
+/* Sponsors Section (Partneři) - OPRAVENO ZOBRAZOVÁNÍ LOG */
 
 .verticals-grid {
     display: grid;
-    /* Opraveno: na desktopu zkusíme 4 sloupce pro maximální kompaktnost */
+    /* Opraveno: Nyní se zobrazí 4 sloupce, pokud je dost místa */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 30px;
     margin-bottom: 60px;
-}
-
-.partners-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.partner-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    background: #f9fbf9;
-    border: 1px solid #e6efe9;
-    border-radius: 10px;
-    padding: 14px 16px;
-    border-left: 4px solid transparent; 
-}
-/* Partner level barvy */
-.partner-item.main-partner { border-left-color: #32b67a; background: #f6fbf8; }
-.partner-item.technologicky-partner { border-left-color: #007bff; background: #f3f8fd; }
-.partner-item.strategicky-partner { border-left-color: #6f42c1; background: #f8f6fb; }
-
-
-.partner-level {
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #4b5563;
-    white-space: nowrap;
-}
-
-.partner-logo-placeholder {
-    /* Zajištění, že logo zabírá minimum místa, ale je zarovnané doprava */
-    width: 120px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    min-height: 48px;
-    flex: 1; 
-}
-.partner-logo-placeholder img {
-    /* Ponechání původních velikostí log */
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
 }
 
 /* Footer - ÚPRAVY ZDE */
@@ -806,6 +786,7 @@ footer {
 
 /* Responzivní styly s opravami */
 @media (max-width: 968px) {
+    /* Na tabletu a menších obrazovkách přepneme .agenda-grid na jeden sloupec */
     .agenda-grid { 
         grid-template-columns: 1fr;
     }
@@ -834,12 +815,11 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 30px;
-        width: 100%;
+        width: auto;
     }
     .footer-nav, .social-links {
         text-align: center;
         align-items: center;
-        width: 100%;
     }
 
     /* Partneři - úprava úrovní pro menší prostor */
@@ -882,7 +862,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /* Partneři - vynucení skládání textu a loga pod sebe (již nastaveno v 480px) */
+    /* Partneři - vynucení skládání textu a loga pod sebe */
     .partner-item {
         flex-direction: column;
         align-items: center;
@@ -897,15 +877,22 @@ footer {
         justify-content: center;
         margin-bottom: 0;
     }
+    /* Footer links na mobilu se skládají pod sebe */
     .footer-links {
-        /* Vynutíme sloupce vedle sebe v rámci footer-links (dvě sady odkazů) */
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
     }
     .footer-nav, .social-links {
-        text-align: left;
-        align-items: flex-start;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+    /* Zajištění, že se logo footeru na mobilu centruje */
+    .footer-logo {
+        text-align: center;
+        min-width: 100%;
     }
 }
 </style>
@@ -1456,7 +1443,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Jak v Adastře zavádíme umělou inteligenci do reálného provozu.
             </p>
             <div class="workshop-footer">
-              <span class="badge badge-panel">PŘÍPADOVÁ STUDIE | Moderuje: I. Karhanová, Hosté: J. Slavík, A. Heider</span>
+              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Moderuje: I. Karhanová, Hosté: J. Slavík, A. Heider</div>
             </div>
             <p class="sub-cases-text">Zahrnuté případové studie: BEDNAR FMT, Hyundai Motor Manufacturing Czech.</p>
           </div>
@@ -1467,7 +1454,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h4>Konec firemního šumu</h4>
             <p>Interní komunikace, která spojuje lidi i cíle.</p>
             <div class="workshop-footer">
-              <span class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Ondřej Švrček</span>
+              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Ondřej Švrček</div>
             </div>
           </div>
 
@@ -1477,7 +1464,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h4>Automatizace přípravy cenových nabídek.</h4>
             <p>Na základě získaných dat.</p>
             <div class="workshop-footer">
-              <span class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Johny Darkwah</span>
+              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Johny Darkwah</div>
             </div>
           </div>
 
@@ -1487,7 +1474,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h4>Principy transformace v praxi</h4>
             <p>Jak sladit vedení a pracovat s cíli.</p>
             <div class="workshop-footer">
-              <span class="badge badge-workshop">WORKSHOP | Tomáš Kopecký</span>
+              <div class="badge badge-workshop">WORKSHOP | Tomáš Kopecký</div>
             </div>
           </div>
           
@@ -1497,7 +1484,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h4>Měnový forward, zajištění pro průmyslové firmy</h4>
             <p>Jak se připravit na volatilitu měn v průmyslovém exportu.</p>
             <div class="workshop-footer">
-              <span class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Miroslav Fisher, Tomáš Klikar</span>
+              <div class="badge badge-case-study">PŘÍPADOVÁ STUDIE | Miroslav Fisher, Tomáš Klikar</div>
             </div>
           </div>
 
@@ -1706,4 +1693,168 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img loading="lazy" src="images/sponsors-logos/detomatic.png" alt="detomatic">
                 <img loading="lazy" src="images/sponsors-logos/franklin.png" alt="franklin">
                 <img loading="lazy" src="images/sponsors-logos/dynamicstream.png" alt="dynamic">
-                <img loading="lazy" src="images/sponsors-logos/
+                <img loading="lazy" src="images/sponsors-logos/gauss.svg" alt="gaus">
+                <img loading="lazy" src="images/sponsors-logos/pkv.svg" alt="pkv">
+                <img loading="lazy" src="images/sponsors-logos/konica%20minolta%20-logo.png" alt="Konica Minolta">
+                
+                <img loading="lazy" src="images/sponsors-logos/Citfin_logo_light.jpg" alt="CITFIN">
+                <img loading="lazy" src="images/sponsors-logos/česká.png" alt="čeb">
+                <img loading="lazy" src="images/sponsors-logos/detomatic.png" alt="detomatic">
+                <img loading="lazy" src="images/sponsors-logos/franklin.png" alt="franklin">
+                <img loading="lazy" src="images/sponsors-logos/dynamicstream.png" alt="dynamic">
+                <img loading="lazy" src="images/sponsors-logos/gauss.svg" alt="gaus">
+                <img loading="lazy" src="images/sponsors-logos/pkv.svg" alt="pkv">
+                <img loading="lazy" src="images/sponsors-logos/konica%20minolta%20-logo.png" alt="Konica Minolta">
+            </div>
+        </div>
+    </div>
+</section>
+
+        <div class="partnership-cta">
+            <div class="cta-content">
+                <h3>Chcete být součástí?</h3>
+                <p>Hledáme partnery pro další odborné sekce. Staňte se součástí platformy, která propojuje obsah, eventy i inovace.</p>
+                <div class="cta-buttons">
+                    <a href="images/Průmyslový Summit 2025.pdf" class="btn-primary" download>Stáhnout nabídku partnerství</a>
+                    <a href="mailto:urbanova@svetprumyslu.cz" class="btn-secondary">Kontaktujte nás</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="faq-section">
+    <div class="container">
+        <h2>Často kladené otázky (FAQ)</h2>
+        
+        <div class="faq-item">
+            <h3>Co čekat na Průmyslovém Summitu 2025?</h3>
+            <p>Průmyslový Summit je místem, kde se potkává budoucnost výroby, technologií a leadershipu. Připravte se na den plný inspirace, konkrétních případových studií a nových obchodních příležitostí.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Pro koho je Průmyslový Summit 2025 určen?</h3>
+            <p>Průmyslový Summit je místem pro ty, kteří chtějí být o krok napřed. Pokud vám záleží na budoucnosti výroby, technologií a lidí ve firmách, tahle akce je přesně pro vás.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Kdo se účastní?</h3>
+            <p>Výrobní a průmyslové firmy. CEO, CTO, CFO, CPO – vedení firem hledající strategické impulsy. Ředitelé závodů, technických úseků a digitalizačních projektů. Odborníci na výrobu, logistiku, kvalitu a údržbu. Technologické a IT společnosti – dodavatelé digitálních řešení, automatizace a AI. Vývojáři a systémoví integrátoři, produktoví manažeři a inovátori. HR & Leadership – HR ředitelé a talent acquisition manažeři. Lídři změn a kultury ve výrobních firmách. Specialisté na nábor, udržení a rozvoj zaměstnanců. Data, výzkum a strategie – data a BI specialisté. Analytici a konzultanti. Akademici a experti z výzkumných center.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Bude čas na networking?</h3>
+            <p>Ano, Průmyslový Summit je celodenní akce, která bude mít dostatek času na networking.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Zaznamenávají se sezení?</h3>
+            <p>Ano, všichni registrovaní účastníci získají přístup k nahrávkám po skončení konference. To vám umožní znovu se podívat na postřehy sdílené řečníky a zachytit jakékoli relace, které jste možná zmeškali.</p>
+        </div>
+
+    </div>
+</section>
+
+    
+    
+  <section id="register" class="registration-section">
+    <div class="container">
+        <div class="registration-container">
+            <div class="registration-header">
+                <h2>Chci na Průmyslový Summit 2025.</h2>
+            </div>
+
+            <div class="registration-link-container">
+                <a href="https://prumyslovysummit.enigoo.cz/app/tickets/events" 
+                    target="_blank" 
+                    class="registration-link-full">
+                    <div class="registration-link-btn">
+                        Koupit vstupenku
+                    </div>
+                    <p class="registration-note">Kliknutím budete přesměrováni na enigoo.cz.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>KONTAKT</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Adresa</h3>
+                        <p>PVA EXPO PRAHA</p>
+                        <p>Beranových 667</p>
+                        <p>199 00 Praha 9</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>E-mail</h3>
+                        <p>sevcik@svetprumyslu.cz</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Telefon</h3>
+                        <p>+420 775 233 232</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Napište nám</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Jméno a příjmení</label>
+                            <input type="text" id="contact-name" name="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">E-mail</label>
+                            <input type="email" id="contact-email" name="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Předmět</label>
+                            <input type="text" id="contact-subject" name="contact-subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Zpráva</label>
+                            <textarea id="contact-message" name="contact-message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Odeslat zprávu</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>     
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#">Průmyslový Summit</a>
+                    <p>DATA. KONTAKTY. PARTNERSTVÍ.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <a href="#about">O summitu</a>
+                        <a href="#speakers">Řečníci</a>
+                        <a href="#program">Program</a>
+                        <a href="#sponsors">Partneři</a>
+                        <a href="#register">Registrace</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#contact">Kontakt</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">LinkedIn</a>
+                        <a href="#" class="social-icon">Twitter</a>
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Průmyslový Summit. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
