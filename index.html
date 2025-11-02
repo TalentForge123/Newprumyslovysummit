@@ -14,7 +14,7 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 <style>
-/* ZDE ZAČÍNÁ CSS, KTERÉ POTŘEBUJETE VLOŽIT DO <head> SEKCE */
+/* ZDE ZAČÍNÁ CSS ZE SOUBORU style.css (UPRAVENO PRO PARTNERY, FOOTER A WORKSHOPY) */
 :root {
     --primary-color: #32B67A;
     --secondary-color: #000000;
@@ -657,6 +657,7 @@ header {
     padding: 20px;
     text-align: left;
     border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Původní styly z Vašeho kódu, jen upravené pozadí pro lepší viditelnost */
     background: rgba(255, 255, 255, 0.1); 
 }
 
@@ -703,6 +704,7 @@ header {
 
 /* Nový styl pro Button Case Study */
 .workshop-footer .badge {
+    /* Přemění badge na button */
     display: inline-block;
     padding: 8px 14px;
     border-radius: 8px;
@@ -712,6 +714,7 @@ header {
     letter-spacing: 0.5px;
     margin-top: 10px;
     
+    /* Barvy pro Case Study */
     background-color: #fff;
     color: var(--primary-color);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -740,45 +743,6 @@ header {
     margin-bottom: 60px;
 }
 
-.partners-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.partner-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    background: #f9fbf9;
-    border: 1px solid #e6efe9;
-    border-radius: 10px;
-    padding: 14px 16px;
-    border-left: 4px solid transparent; 
-}
-/* Partner level barvy */
-.partner-item.main-partner { border-left-color: #32b67a; background: #f6fbf8; }
-.partner-item.technologicky-partner { border-left-color: #007bff; background: #f3f8fd; }
-.partner-item.strategicky-partner { border-left-color: #6f42c1; background: #f8f6fb; }
-
-
-.partner-level {
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #4b5563;
-    white-space: nowrap;
-    /* Opraveno: Dáváme mu menší, ale pevný prostor na desktopu, aby se logo vlezlo */
-    max-width: 40%;
-}
-
-.partner-logo-placeholder {
-    /* Vynucení loga doprava */
-    justify-content: flex-end;
-    /* Zajištění, že logo zabírá minimum místa */
-    min-width: 60%;
-}
-
 /* Footer - ÚPRAVY ZDE */
 
 footer {
@@ -804,9 +768,9 @@ footer {
 
 .footer-links {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* Zabrání zalomení na desktopu */
     gap: 40px;
-    justify-content: flex-end; 
+    justify-content: flex-end; /* Zarovnání doprava */
     width: auto;
     flex: 1;
 }
@@ -848,16 +812,14 @@ footer {
         min-width: 100%;
     }
     .footer-links {
-        /* Dva sloupce navi/socials na tabletu */
-        flex-direction: row; 
-        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
         gap: 30px;
-        width: 100%;
+        width: auto;
     }
     .footer-nav, .social-links {
-        text-align: left; /* Zarovnání textu v rámci sloupce */
-        align-items: flex-start;
-        width: 45%; 
+        text-align: center;
+        align-items: center;
     }
 
     /* Partneři - úprava úrovní pro menší prostor */
@@ -897,18 +859,6 @@ footer {
     .logo-track-right {
         --logo-gap: 40px;
     }
-    
-    /* Footer zpět na jeden sloupec pro velmi malé telefony */
-    .footer-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .footer-nav, .social-links {
-        text-align: center;
-        align-items: center;
-        width: 100%;
-    }
 }
 
 @media (max-width: 480px) {
@@ -921,19 +871,28 @@ footer {
     .partner-level {
         order: 2; 
         margin-top: 5px;
-        max-width: 100%; /* Uvolnění šířky */
     }
     .partner-logo-placeholder {
         order: 1; 
         justify-content: center;
         margin-bottom: 0;
-        min-width: 100%; /* Vynucení, aby se logo centrovlo */
     }
-    /* Footer - Zajištění centrování navigačních sloupců na nejmenších displejích */
+    /* Footer links na mobilu se skládají pod sebe */
+    .footer-links {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
     .footer-nav, .social-links {
         text-align: center;
         align-items: center;
         width: 100%;
+    }
+    /* Zajištění, že se logo footeru na mobilu centruje */
+    .footer-logo {
+        text-align: center;
+        min-width: 100%;
     }
 }
 </style>
