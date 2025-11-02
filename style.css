@@ -409,19 +409,17 @@ header {
     /* ... další styly ... */
 }
 
-/* ÚPRAVA: Pozice času v rohu karty */
+/* Zajištění, že se nadpis nekryje s absolutně pozicovaným časem */
+.workshop-card h3 {
+    /* ... další styly ... */
+    padding-right: 120px; /* Zvýšil jsem na 120px pro větší rezervu */
+}
+
+/* Pozice času v rohu karty */
 .workshop-time.time-top-right {
     position: absolute;
     top: 20px;
     right: 25px;
-    font-size: 1rem; 
-    /* ... další styly ... */
-}
-
-/* ÚPRAVA: Zkompaktnění nadpisů a textu */
-.workshop-card h3 {
-    padding-right: 100px; /* Aby se nepřekrýval s časem */
-    margin-bottom: 5px;
     /* ... další styly ... */
 }
 .workshop-card h4 {
