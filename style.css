@@ -396,6 +396,46 @@ header {
     color: #666;
     font-size: 0.9rem;
 }
+    /* Styly pro Stage 2 - Workshopy, pro odlišení od Stage 1 */
+.workshop-column {
+    background-color: #f0f0f5; /* Světlejší pozadí pro odlišení Stage 2 */
+    /* ... další styly ... */
+}
+
+/* ZÁKLAD pro pozicování prvků */
+.workshop-card {
+    position: relative; 
+    padding: 25px; 
+    /* ... další styly ... */
+}
+
+/* ÚPRAVA: Pozice času v rohu karty */
+.workshop-time.time-top-right {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 1rem; 
+    /* ... další styly ... */
+}
+
+/* ÚPRAVA: Zkompaktnění nadpisů a textu */
+.workshop-card h3 {
+    padding-right: 100px; /* Aby se nepřekrýval s časem */
+    margin-bottom: 5px;
+    /* ... další styly ... */
+}
+.workshop-card h4 {
+    margin-bottom: 5px;
+    /* ... další styly ... */
+}
+
+/* ÚPRAVA: Patička pro Badge a řečníka */
+.workshop-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    margin-top: 10px;
+    /* ... další styly ... */
+}
 
 /* Partners Section */
 .partner-category {
