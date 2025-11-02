@@ -14,7 +14,7 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 <style>
-/* CSS z Vašeho souboru, upraveno pro řešení problémů */
+/* ZDE ZAČÍNÁ CSS ZE SOUBORU style.css (UPRAVENO PRO MAXIMÁLNÍ MOBILNÍ FUNKČNOST) */
 :root {
     --primary-color: #32B67A;
     --secondary-color: #000000;
@@ -238,8 +238,8 @@ header {
 }
 
 @keyframes heroFloat{
-    0%   { transform: translate3d(0,0,0) scale(1); }
-    50%  { transform: translate3d(-4%,3%,0) scale(1.05); }
+    0%   { transform: translate3d(0,0,0) scale(1); }
+    50%  { transform: translate3d(-4%,3%,0) scale(1.05); }
     100% { transform: translate3d(0,0,0) scale(1); }
 }
 
@@ -627,12 +627,11 @@ header {
 
 /* Workshop Section (Stage 2) */
 .workshop-column {
-    /* Styly pro Stage 2, aby se zarovnala se Stage 1 */
     background-color: #000;
     color: #fff;
     padding: 30px; 
     border-radius: 16px;
-    margin-top: -30px; /* Negativní margin pro optické vyrovnání horního okraje */
+    margin-top: -30px; 
 }
 
 .workshop-column .stage-title {
@@ -707,8 +706,102 @@ header {
 .workshop-footer { margin-top: 10px; }
 
 
-/* Partners Section CSS (ponecháno z Vašeho kódu) */
-/* ... Váš Partners Section CSS ... */
+/* Sponsors Section (Partneři) - ÚPRAVY ZDE */
+
+.verticals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.partners-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.partner-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: #f9fbf9;
+    border: 1px solid #e6efe9;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 4px solid transparent; 
+}
+/* Partner level barvy */
+.partner-item.main-partner { border-left-color: #32b67a; background: #f6fbf8; }
+.partner-item.technologicky-partner { border-left-color: #007bff; background: #f3f8fd; }
+.partner-item.strategicky-partner { border-left-color: #6f42c1; background: #f8f6fb; }
+
+
+.partner-level {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #4b5563;
+    white-space: nowrap;
+}
+
+.partner-logo-placeholder {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 48px;
+    flex: 1; 
+}
+
+/* Footer - ÚPRAVY ZDE */
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+    min-width: 100%; 
+    text-align: center;
+}
+
+.footer-logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--light-text);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center; 
+    width: 100%;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 
 /* Responzivní styly s opravami */
 @media (max-width: 968px) {
@@ -717,9 +810,35 @@ header {
         grid-template-columns: 1fr;
     }
     .workshop-column {
-        /* Odstranění negativního marginu a horního odsazení Stage 2 na mobilu */
         margin-top: 30px; 
-        padding-top: 30px; /* Přidáno standardní odsazení */
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Footer - mobilní zarovnání */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-logo {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        width: auto;
+    }
+    .footer-nav, .social-links {
+        text-align: center;
+        align-items: center;
+    }
+
+    /* Partneři - úprava úrovní pro menší prostor */
+    .level-info p {
+        font-size: 0.85rem;
     }
 }
 
@@ -745,6 +864,23 @@ header {
     .agenda-item {
         grid-template-columns: 84px 1fr; 
         padding: 14px; 
+    }
+}
+
+@media (max-width: 480px) {
+    /* Partneři - vynucení skládání textu a loga pod sebe */
+    .partner-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .partner-level {
+        order: 2; /* Přesun úrovně partnera pod logo */
+    }
+    .partner-logo-placeholder {
+        order: 1; /* Umístění loga nahoru */
+        justify-content: center;
+        margin-bottom: 10px;
     }
 }
 </style>
@@ -1348,10 +1484,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
     </div>
-    
-
-    
-
   </div>
 </section>
 
@@ -1595,7 +1727,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div class="faq-item">
             <h3>Kdo se účastní?</h3>
-            <p>Výrobní a průmyslové firmy. CEO, CTO, CFO, CPO – vedení firem hledající strategické impulsy. Ředitelé závodů, technických úseků a digitalizačních projektů. Odborníci na výrobu, logistiku, kvalitu a údržbu. Technologické a IT společnosti – dodavatelé digitálních řešení, automatizace a AI. Vývojáři a systémoví integrátoři, produktoví manažeři a inovatoři. HR & Leadership – HR ředitelé a talent acquisition manažeři. Lídři změn a kultury ve výrobních firmách. Specialisté na nábor, udržení a rozvoj zaměstnanců. Data, výzkum a strategie – data a BI specialisté. Analytici a konzultanti. Akademici a experti z výzkumných center.</p>
+            <p>Výrobní a průmyslové firmy. CEO, CTO, CFO, CPO – vedení firem hledající strategické impulsy. Ředitelé závodů, technických úseků a digitalizačních projektů. Odborníci na výrobu, logistiku, kvalitu a údržbu. Technologické a IT společnosti – dodavatelé digitálních řešení, automatizace a AI. Vývojáři a systémoví integrátoři, produktoví manažeři a inovátori. HR & Leadership – HR ředitelé a talent acquisition manažeři. Lídři změn a kultury ve výrobních firmách. Specialisté na nábor, udržení a rozvoj zaměstnanců. Data, výzkum a strategie – data a BI specialisté. Analytici a konzultanti. Akademici a experti z výzkumných center.</p>
         </div>
 
         <div class="faq-item">
