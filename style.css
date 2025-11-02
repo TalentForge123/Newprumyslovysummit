@@ -44,50 +44,77 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 .agenda-item { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 16px 18px; border-left: 4px solid transparent; }
 .agenda-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.agenda-item.talk { border-left-color: var(--primary-color); }
 
 /* WORKSHOP COLUMN (STAGE 2) - BAREVNÉ A ČASOVÉ PŘEHLEDNÉ ZOBRAZENÍ */
 .workshop-column {
-    background-color: var(--dark-bg); 
+    background-color: var(--dark-bg); /* Tmavé pozadí pro celou Stage 2 */
     color: var(--light-text);
     padding: 30px; 
     border-radius: 16px;
     margin-top: 0; 
 }
+
 .workshop-column .stage-title { color: var(--primary-color); }
 .workshop-column .agenda-subtitle { color: #a0a0a0 !important; }
 
-/* Styly pro AGENDA ITEM uvnitř Stage 2, aby vypadaly jako řádky */
-.agenda-column .agenda-list .agenda-item {
-    background: rgba(255, 255, 255, 0.08); /* Světlejší karta na tmavém pozadí */
+/* KLÍČOVÁ OPRAVA: Vynucení workshop karet pod sebou */
+.workshop-grid {
+    /* Místo gridu jen flex column s mezerami */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px;
+    margin-top: 20px;
+}
+.workshop-card {
+    /* Vynucení 100% šířky pro zobrazení pod sebou */
+    width: 100% !important;
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+    text-align: left;
+    
+    /* Vzhled karty */
     color: #fff;
+    background: rgba(255, 255, 255, 0.1); 
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-left: 4px solid var(--primary-color); /* Zelený rámeček */
-    margin-bottom: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-.workshop-column .agenda-item .agenda-time,
-.workshop-column .agenda-item .agenda-title {
-    color: #fff !important; /* Bílý čas a titulek */
+
+/* Zachování barevného tématu uvnitř Stage 2 */
+.workshop-card h3 { color: var(--primary-color); }
+.workshop-card h4, .workshop-card p { color: #fff; }
+
+.workshop-card.green { background-color: #28a745; color: #000; }
+.workshop-card.beige { background-color: #C3A375; color: #000; }
+.workshop-card.green h3, .workshop-card.green h4, .workshop-card.green p { color: #000; }
+.workshop-card.beige h3, .workshop-card.beige h4, .workshop-card.beige p { color: #000; }
+
+.workshop-card .workshop-time {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-weight: 700;
 }
-.workshop-column .agenda-item .agenda-meta span {
-    color: #ccc !important; /* Světle šedé meta informace */
+.workshop-footer .badge {
+    background-color: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
 }
-.workshop-column .agenda-item .agenda-meta .speaker {
-    color: var(--primary-color) !important; /* Zelený speaker */
-}
-/* Speciální barva pro panely uvnitř Stage 2 */
-.workshop-column .agenda-item.panel { 
-    border-left-color: #007bff; /* Modrý panel */
-    background: rgba(0, 123, 255, 0.12); /* Modravé pozadí */
+.workshop-card.green .workshop-footer .badge,
+.workshop-card.beige .workshop-footer .badge {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #fff;
 }
 
 
-/* Sponsors Section (Partneři) - CÍLENÉ A SILNÉ OPRAVY */
+/* Sponsors Section (Partneři) - STATICKÝ GRID */
 
 .verticals-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 30px;
-    margin-bottom: 60px;
 }
 
 .partner-item {
@@ -97,77 +124,30 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     padding: 14px 16px;
     flex-direction: row !important; 
 }
+.partner-level { max-width: 40%; min-width: 100px; }
+.partner-logo-placeholder { justify-content: flex-end; min-width: 60%; }
 
-.partner-level {
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: #4b5563;
-    white-space: nowrap;
-    max-width: 40%;
-    min-width: 100px;
-}
 
-.partner-logo-placeholder {
-    justify-content: flex-end;
-    min-width: 60%;
-}
+/* === SEKCE PODPOROVATELŮ - STATICKÝ GRID === */
 
-/* === SEKCE PODPOROVATELŮ - STATICKÝ GRID (Vynucený vzhled) === */
-
-.supporting-partners {
-    background-color: var(--gray-bg);
-    text-align: center;
-    padding: 80px 0;
-}
-.supporting-logos-grid {
+.supporting-partners { background-color: var(--gray-bg); text-align: center; padding: 80px 0; }
+.supporting-logos-grid { 
     display: grid !important; 
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
     gap: 30px;
     justify-items: center; 
-    align-items: center;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 20px 0;
-    animation: none !important;
-    transform: none !important;
 }
-
-.logo-carousel-row {
-    display: block !important;
-    overflow: visible !important;
-    height: auto !important;
-}
-
-.logo-track-left, .logo-track-right {
-    display: contents !important; 
-}
-
 .supporting-partners img {
     max-height: 70px;
-    object-fit: contain;
     filter: grayscale(100%) opacity(.8); 
     transition: filter 0.3s ease, transform 0.3s ease;
 }
-.supporting-partners img:hover {
-    filter: grayscale(0%) opacity(1);
-    transform: scale(1.05);
-}
 
 
-/* FOOTER - KLÍČOVÉ OPRAVY */
-
-footer {
-    background-color: var(--secondary-color);
-    color: var(--light-text);
-    padding: 60px 0 20px;
-}
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 40px;
-}
-
+/* FOOTER */
+footer { background-color: var(--secondary-color); color: var(--light-text); padding: 60px 0 20px; }
 
 /* --- RESPONZIVNÍ STYLY --- */
 
@@ -181,8 +161,6 @@ footer {
     .footer-content { flex-direction: column; align-items: center; }
     .footer-logo { text-align: center; margin-bottom: 30px; min-width: 100%; }
     .footer-links { flex-direction: row !important; justify-content: space-around !important; width: 100%; gap: 20px; }
-    .footer-nav, .social-links { text-align: left; align-items: flex-start; width: 45%; }
-    
     .supporting-logos-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important; }
 }
 
@@ -190,7 +168,6 @@ footer {
     .agenda-meta { flex-direction: column !important; align-items: flex-start !important; gap: 0; margin-top: 5px; }
     .agenda-meta .divider { display: none !important; }
     .footer-links { flex-direction: column !important; align-items: center !important; gap: 20px; }
-    .footer-nav, .social-links { text-align: center !important; align-items: center !important; width: 100%; }
     .supporting-logos-grid { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important; gap: 20px; }
 }
 
