@@ -14,7 +14,7 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 <style>
-/* ZÁKLADNÍ PROMĚNNÉ */
+/* ZDE ZAČÍNÁ KÓD CSS */
 :root {
     --primary-color: #32B67A;
     --secondary-color: #000000;
@@ -49,35 +49,34 @@ body {
 h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
 h1 { font-size: 4rem; font-weight: 900; text-transform: uppercase; }
 h2 { font-size: 2.5rem; text-align: center; text-transform: uppercase; margin-bottom: 40px; }
-p { margin-bottom: 20px; }
-a { text-decoration: none; color: var(--primary-color); transition: var(--transition); }
-a:hover { color: var(--accent-color); }
 section { padding: 80px 0; }
 
-/* NAVIGACE A HERO - ZÁKLADNÍ FUNKČNOST */
-header {
-    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+/* NAVIGATION, HERO A SPEAKERS - ZACHOVÁNÍ ZÁKLADNÍ FUNKČNOSTI */
+header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
 .main-nav { padding: 15px 0; }
 .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); }
 .nav-links { display: flex; gap: 20px; }
-.nav-item { color: var(--secondary-color); font-weight: 500; padding: 8px 12px; border-radius: 4px; transition: var(--transition); }
-.register-btn { background-color: var(--primary-color); color: var(--light-text); padding: 8px 16px; border-radius: 4px; }
 .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 4px; position: relative; z-index: 1001; }
-.mobile-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.98); z-index: 1000; padding-top: 80px; }
-.mobile-nav.active { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
-
 .hero { background-color: var(--dark-bg); color: var(--light-text); padding: 150px 0 80px; position: relative; }
-.cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
 .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 .agenda-item { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 16px 18px; border-left: 4px solid transparent; }
 .agenda-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
 
+/* OPRAVA: WORKSHOP COLUMN */
+.workshop-column {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 30px; 
+    border-radius: 16px;
+    margin-top: 0; /* ZÁKLADNÍ OPRAVA: Odstranění záporného marginu */
+}
+/* Zajištění viditelnosti textu */
+.workshop-column h3, .workshop-column h4, .workshop-column p {
+    color: #fff;
+}
 
-/* SEKCIA PARTNEŘI - KLÍČOVÉ PRAVIDLA */
+
+/* SEKCIA PARTNEŘI - CÍLENÉ A SILNÉ OPRAVY */
 
 .verticals-grid {
     display: grid;
@@ -97,15 +96,8 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 14px 16px;
-    flex-direction: row !important; 
-    /* Barvy a styly úrovní - zjednodušeno pro čistotu */
-    background: #f9fbf9;
-    border: 1px solid #e6efe9;
-    border-radius: 10px;
+    flex-direction: row !important; /* Vynucení řádku na desktopu */
 }
-.partner-item.main-partner { border-left: 4px solid #32b67a; background: #f6fbf8; }
-.partner-item.technologicky-partner { border-left: 4px solid #007bff; background: #f3f8fd; }
-.partner-item.strategicky-partner { border-left: 4px solid #6f42c1; background: #f8f6fb; }
 
 .partner-level {
     font-size: 0.92rem;
@@ -122,7 +114,7 @@ header {
 }
 
 
-/* FOOTER - KLÍČOVÉ PRAVIDLA */
+/* FOOTER - CÍLENÉ OPRAVY */
 
 footer {
     background-color: var(--secondary-color);
@@ -141,7 +133,6 @@ footer {
     min-width: auto;
     text-align: left;
     flex: 1;
-    margin-bottom: 0;
 }
 
 .footer-links {
@@ -152,59 +143,38 @@ footer {
     flex: 1;
 }
 
+
 /* --- RESPONZIVNÍ STYLY --- */
 
 @media (max-width: 968px) {
     .agenda-grid { grid-template-columns: 1fr; }
     .verticals-grid { grid-template-columns: 1fr; }
+    .workshop-column { margin-top: 30px; padding-top: 30px; }
 }
 
 @media (max-width: 768px) {
-    /* Footer: Přechod na mobilní/tabletové zobrazení */
+    /* Footer: 2 sloupce na tabletu */
     .footer-content { flex-direction: column; align-items: center; }
     .footer-logo { text-align: center; margin-bottom: 30px; min-width: 100%; }
-    .footer-links {
-        /* Vynucení 2 sloupců na tabletu */
-        flex-direction: row !important; 
-        justify-content: space-around !important;
-        width: 100%;
-        gap: 20px;
-    }
-    .footer-nav, .social-links {
-        text-align: left; 
-        align-items: flex-start;
-        width: 45%; 
-    }
+    .footer-links { flex-direction: row !important; justify-content: space-around !important; width: 100%; gap: 20px; }
+    .footer-nav, .social-links { text-align: left; align-items: flex-start; width: 45%; }
+}
+
+@media (max-width: 560px) {
+    /* Agenda - Zalomení řečníka a firmy */
+    .agenda-meta { flex-direction: column !important; align-items: flex-start !important; gap: 0; margin-top: 5px; }
+    .agenda-meta .divider { display: none !important; }
+
+    /* Footer: Zpět na 1 sloupec pro menší telefony */
+    .footer-links { flex-direction: column !important; align-items: center !important; gap: 20px; }
+    .footer-nav, .social-links { text-align: center !important; align-items: center !important; width: 100%; }
 }
 
 @media (max-width: 480px) {
     /* Partneři: Vynutit skládání loga a úrovně pod sebe */
-    .partner-item {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
-    .partner-level {
-        order: 2; 
-        margin-top: 5px;
-        max-width: 100%;
-    }
-    .partner-logo-placeholder {
-        order: 1; 
-        justify-content: center;
-        margin-bottom: 0;
-        min-width: 100%;
-    }
-    /* Footer: 1 sloupec na malém mobilu */
-    .footer-links {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    .footer-nav, .social-links {
-        text-align: center !important;
-        align-items: center !important;
-        width: 100%;
-    }
+    .partner-item { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+    .partner-level { order: 2; margin-top: 5px; max-width: 100%; }
+    .partner-logo-placeholder { order: 1; justify-content: center; margin-bottom: 0; min-width: 100%; }
 }
 </style>
 </head>
@@ -259,75 +229,77 @@ footer {
                 </div>
                 
                 <div class="countdown">
-                    <div class="countdown-item">
-                        <span id="days">00</span>
-                        <span class="countdown-label">DNÍ</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">00</span>
-                        <span class="countdown-label">HODIN</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">00</span>
-                        <span class="countdown-label">MINUT</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">00</span>
-                        <span class="countdown-label">SEKUND</span>
-                    </div>
-                </div>
+    <div class="countdown-item">
+        <span id="days">00</span>
+        <span class="countdown-label">DNÍ</span>
+    </div>
+    <div class="countdown-item">
+        <span id="hours">00</span>
+        <span class="countdown-label">HODIN</span>
+    </div>
+    <div class="countdown-item">
+        <span id="minutes">00</span>
+        <span class="countdown-label">MINUT</span>
+    </div>
+    <div class="countdown-item">
+        <span id="seconds">00</span>
+        <span class="countdown-label">SEKUND</span>
+    </div>
+</div>
 
-                <script>
-                // Countdown Timer
-                document.addEventListener('DOMContentLoaded', function() {
-                    // Set the date we're counting down to
-                    const summitDate = new Date("Nov 14, 2025 09:00:00").getTime();
-                    
-                    // Update the countdown every 1 second
-                    const countdownTimer = setInterval(function() {
-                        // Get today's date and time
-                        const now = new Date().getTime();
-                        
-                        // Find the distance between now and the summit date
-                        const distance = summitDate - now;
-                        
-                        // Time calculations for days, hours, minutes and seconds
-                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                        
-                        // Display the result with proper ID selectors
-                        const daysElement = document.getElementById("days");
-                        const hoursElement = document.getElementById("hours");
-                        const minutesElement = document.getElementById("minutes");
-                        const secondsElement = document.getElementById("seconds");
-                        
-                        if (daysElement) daysElement.innerHTML = days.toString().padStart(3, '0');
-                        if (hoursElement) hoursElement.innerHTML = hours.toString().padStart(2, '0');
-                        if (minutesElement) minutesElement.innerHTML = minutes.toString().padStart(2, '0');
-                        if (secondsElement) secondsElement.innerHTML = seconds.toString().padStart(2, '0');
-                        
-                        // If the countdown is finished, display message
-                        if (distance < 0) {
-                            clearInterval(countdownTimer);
-                            if (daysElement) daysElement.innerHTML = "000";
-                            if (hoursElement) hoursElement.innerHTML = "00";
-                            if (minutesElement) minutesElement.innerHTML = "00";
-                            if (secondsElement) secondsElement.innerHTML = "00";
-                        }
-                    }, 1000);
-                });
-                </script>
+<script>
+// Countdown Timer
+document.addEventListener('DOMContentLoaded', function() {
+    // Set the date we're counting down to
+    const summitDate = new Date("Nov 14, 2025 09:00:00").getTime();
+    
+    // Update the countdown every 1 second
+    const countdownTimer = setInterval(function() {
+        // Get today's date and time
+        const now = new Date().getTime();
+        
+        // Find the distance between now and the summit date
+        const distance = summitDate - now;
+        
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Display the result with proper ID selectors
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+        const secondsElement = document.getElementById("seconds");
+        
+        if (daysElement) daysElement.innerHTML = days.toString().padStart(3, '0');
+        if (hoursElement) hoursElement.innerHTML = hours.toString().padStart(2, '0');
+        if (minutesElement) minutesElement.innerHTML = minutes.toString().padStart(2, '0');
+        if (secondsElement) secondsElement.innerHTML = seconds.toString().padStart(2, '0');
+        
+        // If the countdown is finished, display message
+        if (distance < 0) {
+            clearInterval(countdownTimer);
+            if (daysElement) daysElement.innerHTML = "000";
+            if (hoursElement) hoursElement.innerHTML = "00";
+            if (minutesElement) minutesElement.innerHTML = "00";
+            if (secondsElement) secondsElement.innerHTML = "00";
+        }
+    }, 1000);
+});
+</script>
                 
-                <div class="cta-row">
-                    <a href="https://prumyslovysummit.enigoo.cz/app/tickets/events" 
-                       target="_blank" 
-                       class="btn btn-primary">
-                       Koupit vstupenku
-                    </a>
-                    <a href="#program" class="btn btn-ghost">Prohlédnout si program</a>
-                </div>
+               <div class="cta-row">
+ <a href="https://prumyslovysummit.enigoo.cz/app/tickets/events" 
+     target="_blank" 
+     class="btn btn-primary">
+   Koupit vstupenku
+ </a>
+ <a href="#program" class="btn btn-ghost">Prohlédnout si program</a>
+</div>
+
+
             </div>
         </div>
     </section>
@@ -397,6 +369,7 @@ footer {
                 <p>CEO, Škoda X</p>
                 <p class="speaker-topic">"Od experimentů k realizaci: Příběh ŠKODA X."</p>
             </div>
+
             <div class="speaker-card">
                 <div class="speaker-image">
                     <img src="/images/images/speakers/slachta-2025.jpg" alt="Milan Šlachta">
@@ -405,6 +378,7 @@ footer {
                 <p>CEO, reprezentant, Bosch</p>
                 <p class="speaker-topic">"Od tradiční výroby k datové továrně."</p>
             </div>
+
             <div class="speaker-card">
                 <div class="speaker-image">
                     <img src="/images/images/speakers/Vanek.jpg" alt="Ondřej Vaněk">
@@ -413,6 +387,7 @@ footer {
                 <p>Chief AI Officer, Adastra</p>
                 <p class="speaker-topic">"Umělá inteligence v českém průmyslu: Kde jsme a jak zrychlit?"</p>
             </div>
+
             <div class="speaker-card">
                 <div class="speaker-image">
                     <img src="/images/images/speakers/kriz-2025.jpg" alt="Jaromír Kříž">
@@ -421,8 +396,123 @@ footer {
                 <p>Country Director, Bilfinger</p>
                 <p class="speaker-topic">"Inženýring pro novou energetiku: Digitalizace, bezpečnost, výkon."</p>
             </div>
+
+            <div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="/images/images/speakers/Stribrny.jpg" alt="Miroslav Stříbrný">
+                </div>
+                <h3>Miroslav Stříbrný</h3>
+                <p>Business and Export Finance Director, ČEB</p>
+                <p class="speaker-topic">"Financování exportu: Jak podpořit expanzi a kapitál?"</p>
             </div>
-    </section>
+
+            <div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="/images/images/speakers/chalupny-2025.jpg" alt="Josef Chalupný">
+                </div>
+                <h3>Josef Chalupný</h3>
+                <p>COO, Model Obaly</p>
+                <p class="speaker-topic">"Jak Model Group mění výrobu pomocí dat: Konkrétní zkušenosti s řízením české pobočky."</p>
+            </div>
+
+            <div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="/images/images/speakers/kafkova-2025.jpg" alt="Jana Kafková">
+                </div>
+                <h3>Jana Kafková</h3>
+                <p> Chief People Officer, Meopta</p>
+                <p class="speaker-topic">"Jak přivést lidi zpět do výroby?"</p>
+            </div>
+<div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="/images/images/speakers/Benzl.jpg" alt="Lukáš Benzl">
+                </div>
+                <h3>Lukáš Benzl</h3>
+                <p> Managing Director, Česká asociace umělé inteligence</p>
+                <p class="speaker-topic">"Umělé inteligence a budoucnost českého průmyslu."</p>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-image">
+                    <img src="/images/images/speakers/nemec-2025.jpg" alt="Vladislav Němec">
+                </div>
+                <h3>Vladislav Němec</h3>
+                <p>CEO, ifm electronic</p>
+                <p class="speaker-topic">"Industry 4.0 - Co se událo?"</p>
+            </div> 
+  <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Novak1.png" alt="Miroslav Novák">
+  </div>
+  <h3>Miroslav Novák</h3>
+  <p>Hlavní analytik, Citfin</p>
+  <p class="speaker-topic">"Devizové trhy a jejich výzvy pro průmyslové podniky."</p>
+</div>           
+<div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Kotyza.jpg" alt="Oldřich Kotyza">
+  </div>
+  <h3>Oldřich Kotyza</h3>
+  <p>FGDS specialista, Dräger</p>
+  <p class="speaker-topic">"Průmyslová bezpečnost a udržitelnost s detekcí plynů."</p>
+</div>
+              <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Hrbackova.png" alt="Gabriela Hrbáčková">
+  </div>
+  <h3>Gabriela Hrbáčková</h3>
+  <p>CEO, Hofmann Personal</p>
+  <p class="speaker-topic">"Panelová diskuze: Women leadership."</p>
+</div>
+      <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Dvorak.jpg" alt="Lukáš Dvořák">
+  </div>
+  <h3>Lukáš Dvořák</h3>
+  <p>Product Manager, Conteg</p>
+  <p class="speaker-topic">"Současné trendy v chlazení datových center."</p>
+</div>
+              <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Macho.jpg" alt="Ivan Macho">
+  </div>
+  <h3>Ivan Macho</h3>
+  <p>Obchodní ředitel, PKV BUILD</p>
+  <p class="speaker-topic">"Digitalizace energetiky v průmyslu: Jak přejít od faktur k reálné úspoře spotřeby?"</p>
+</div>
+                            <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Kopecký.jpg" alt="Tomáš Kopecký">
+  </div>
+  <h3>Tomáš Kopecký</h3>
+  <p>Managing Partner, FranklinCovey ČR & SR</p>
+  <p class="speaker-topic">"Principy transformace: změna chování, nejen technologií."</p>
+</div>
+            <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Michal Janku.jpg" alt="Michal Janků">
+  </div>
+  <h3>Michal Janků</h3>
+  <p>Ředitel odboru pojištění vývozních úvěrů a investic, EGAP </p>
+  <p class="speaker-topic">"Bezpečný export: Cesta na zahraniční trhy bez zbytečných rizik a ztrát."</p>
+</div>
+              <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Rosova.jpg" alt="Barbora Rosová">
+  </div>
+  <h3>Barbora Rosová</h3>
+  <p>Delivery Growth And Promotion Manager, One by Allegro </p>
+  <p class="speaker-topic">"Panelová diskuze: Women leadership."</p>
+</div>  
+            <div class="speaker-card">
+  <div class="speaker-image">
+    <img src="/images/images/speakers/Kastner.jpg" alt="Jiří Kastner">
+  </div>
+  <h3>Jiří Kastner</h3>
+  <p>Executive Sparring Partner</p>
+  <p class="speaker-topic">"Moderátor panelové diskuze: Women leadership."</p>
+</div>           
+    </div>
+</section>
 
     <section id="program" class="program-section">
     <div class="container">
@@ -487,6 +577,8 @@ footer {
                     <div class="vertical-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <h4>AI, Data & Kyberbezpečnost, Ecom</h4>
