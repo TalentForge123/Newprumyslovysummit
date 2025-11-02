@@ -276,3 +276,444 @@ footer {
     }
 }
 </style>
+/* Partners Section */
+.partner-category {
+    margin-bottom: 40px;
+}
+
+.partner-category h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.partner-logo {
+    width: 200px;
+    height: 100px;
+    background-color: var(--gray-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.partner-logo.placeholder::after {
+    content: 'Logo partnera';
+    color: #999;
+}
+
+/* Registration Section */
+.register {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+.register-content {
+    text-align: center;
+}
+
+.ticket-types {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.ticket-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    width: 300px;
+    transition: var(--transition);
+}
+
+.ticket-card.featured {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+}
+
+.ticket-card.featured:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.ticket-card h3 {
+    font-size: 1.5rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.ticket-card ul {
+    list-style: none;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.ticket-card li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.ticket-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.ticket-card.featured li::before {
+    color: var(--light-text);
+}
+
+.ticket-btn {
+    display: inline-block;
+    background-color: var(--light-text);
+    color: var(--dark-bg);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.ticket-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+}
+
+.register-form {
+    max-width: 600px;
+    margin: 60px auto 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: var(--dark-text);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* FAQ Section */
+.faq {
+    background-color: var(--light-bg);
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    background-color: #fff;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+    
+.toggle-icon {
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.faq-answer {
+    background-color: #f9f9f9;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-item.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px;
+    max-height: 1000px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-item {
+    margin-bottom: 30px;
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.contact-form {
+    flex: 2;
+    min-width: 300px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--light-text);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav a {
+    color: var(--light-text);
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-icon {
+    color: var(--light-text);
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .countdown-container {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+    }
+
+    .countdown-item span:first-child {
+        font-size: 2rem;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+    }
+
+    .time {
+        margin-bottom: 10px;
+    }
+
+    .ticket-types {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ticket-card.featured {
+        transform: none;
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .countdown-container {
+        flex-wrap: wrap;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+        margin-bottom: 10px;
+    }
+}
+/* ===== FINÁLNÍ OPRAVA PRO VŠECHNY STAVY FORMULÁŘE ===== */
+
+/* Toto pravidlo zacílí na všechna běžná pole */
+.wpcf7-form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+}
+
+/* Toto speciální pravidlo donutí pole s AUTOFILLEM vypadat stejně */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active  {
+    /* Změna barvy pozadí u autofillu se dělá přes stín, je to takový trik */
+    -webkit-box-shadow: 0 0 0 30px #333333 inset !important;
+
+    /* Změna barvy písma u autofillu */
+    -webkit-text-fill-color: #ffffff !important;
+
+    /* Pro jistotu ještě barva rámečku */
+    border: 1px solid #555555 !important;
+}
+/* CSS změny pro tmavé pozadí registračních polí */
+
+/* ŘEŠENÍ PRO AUTOFILL A NORMÁLNÍ PSANÍ */
+#firstName,
+#lastName,
+#email,
+#phone,
+#company,
+#position {
+    color: #000000 !important;
+}
+
+#firstName:-webkit-autofill,
+#lastName:-webkit-autofill,
+#email:-webkit-autofill,
+#phone:-webkit-autofill,
+#company:-webkit-autofill,
+#position:-webkit-autofill {
+    -webkit-text-fill-color: #000000 !important;
+    color: #000000 !important;
+}
+
+.registration-section .registration-form input {
+    color: #000000 !important;
+}
