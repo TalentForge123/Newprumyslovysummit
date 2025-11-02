@@ -46,7 +46,7 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 .agenda-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
 .agenda-item.talk { border-left-color: var(--primary-color); }
 
-/* WORKSHOP COLUMN (STAGE 2) - BAREVNÉ A ČASOVÉ PŘEHLEDNÉ ZOBRAZENÍ */
+/* WORKSHOP COLUMN (STAGE 2) - ČASOVĚ PŘEHLEDNÉ ZOBRAZENÍ POD SEBOU */
 .workshop-column {
     background-color: var(--dark-bg); /* Tmavé pozadí pro celou Stage 2 */
     color: var(--light-text);
@@ -56,30 +56,29 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 }
 
 .workshop-column .stage-title { color: var(--primary-color); }
-.workshop-column .agenda-subtitle { color: #a0a0a0 !important; }
 
-/* KLÍČOVÁ OPRAVA: Vynucení workshop karet pod sebou */
+/* KLÍČOVÁ OPRAVA: Vynucení workshop karet pod sebou (1 sloupec) */
 .workshop-grid {
-    /* Místo gridu jen flex column s mezerami */
-    display: flex !important;
-    flex-direction: column !important;
+    display: grid !important; 
+    grid-template-columns: 1fr !important; /* Vynucení jednoho sloupce */
     gap: 16px;
     margin-top: 20px;
 }
+
 .workshop-card {
-    /* Vynucení 100% šířky pro zobrazení pod sebou */
     width: 100% !important;
     padding: 20px;
     border-radius: 12px;
     position: relative;
     text-align: left;
-    
-    /* Vzhled karty */
     color: #fff;
     background: rgba(255, 255, 255, 0.1); 
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+.workshop-card.full-width {
+    grid-column: 1 / -1 !important; /* Oprava: Zajištění, že zabere jen 1 sloupec */
+}
+
 
 /* Zachování barevného tématu uvnitř Stage 2 */
 .workshop-card h3 { color: var(--primary-color); }
@@ -90,17 +89,9 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 .workshop-card.green h3, .workshop-card.green h4, .workshop-card.green p { color: #000; }
 .workshop-card.beige h3, .workshop-card.beige h4, .workshop-card.beige p { color: #000; }
 
-.workshop-card .workshop-time {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-weight: 700;
-}
 .workshop-footer .badge {
     background-color: rgba(0, 0, 0, 0.15);
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 6px;
 }
 .workshop-card.green .workshop-footer .badge,
 .workshop-card.beige .workshop-footer .badge {
@@ -115,6 +106,7 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 30px;
+    margin-bottom: 60px;
 }
 
 .partner-item {
@@ -124,30 +116,29 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     padding: 14px 16px;
     flex-direction: row !important; 
 }
-.partner-level { max-width: 40%; min-width: 100px; }
-.partner-logo-placeholder { justify-content: flex-end; min-width: 60%; }
 
 
 /* === SEKCE PODPOROVATELŮ - STATICKÝ GRID === */
 
-.supporting-partners { background-color: var(--gray-bg); text-align: center; padding: 80px 0; }
 .supporting-logos-grid { 
     display: grid !important; 
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
     gap: 30px;
     justify-items: center; 
+    align-items: center;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 20px 0;
+    animation: none !important;
+    transform: none !important;
 }
+
 .supporting-partners img {
     max-height: 70px;
     filter: grayscale(100%) opacity(.8); 
     transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-
-/* FOOTER */
-footer { background-color: var(--secondary-color); color: var(--light-text); padding: 60px 0 20px; }
 
 /* --- RESPONZIVNÍ STYLY --- */
 
@@ -159,7 +150,6 @@ footer { background-color: var(--secondary-color); color: var(--light-text); pad
 
 @media (max-width: 768px) {
     .footer-content { flex-direction: column; align-items: center; }
-    .footer-logo { text-align: center; margin-bottom: 30px; min-width: 100%; }
     .footer-links { flex-direction: row !important; justify-content: space-around !important; width: 100%; gap: 20px; }
     .supporting-logos-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important; }
 }
