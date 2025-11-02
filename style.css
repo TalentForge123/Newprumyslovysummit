@@ -1157,5 +1157,77 @@ footer {
         min-width: 100%; 
     }
 }
+    .supporting-partners {
+  padding: 70px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.supporting-partners h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #111;
+}
+
+/* Wrapper jednoho řádku */
+.logo-carousel-row {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+/* Track */
+.logo-track-left,
+.logo-track-right {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  will-change: transform;
+}
+
+.logo-track-left {
+  animation: scroll-left 40s linear infinite;
+}
+.logo-track-right {
+  animation: scroll-right 40s linear infinite;
+}
+
+/* Animace */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Loga */
+.logo-track-left img,
+.logo-track-right img {
+  height: 55px;
+  width: auto;
+  filter: grayscale(1) opacity(.8);
+  transition: .25s ease;
+}
+
+.logo-track-left img:hover,
+.logo-track-right img:hover {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.04);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .logo-track-left img,
+  .logo-track-right img {
+    height: 42px;
+  }
+  .logo-track-left, .logo-track-right {
+    gap: 32px;
+    animation-duration: 25s;
+  }
+}
 </style>
 
