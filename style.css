@@ -207,10 +207,9 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 
 @media (max-width: 900px){
   .videos-layout{
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .video-secondary{
-    gap: 20px;
-  }
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); /* bylo 2fr / 1fr */
+  gap: 28px;
+  align-items: start;
 }
+
