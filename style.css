@@ -211,7 +211,7 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 }
 
 /* MOBIL */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .videos-layout {
     grid-template-columns: 1fr;
   }
@@ -220,3 +220,10 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     gap: 20px;
   }
 }
+.videos-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
