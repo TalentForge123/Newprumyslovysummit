@@ -106,7 +106,7 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 .program-cta{
   margin-bottom: 40px;
   flex-wrap: wrap;              /* aby se tlačítka nelámala divně */
-  row-gap: 14px;
+  row-gap: 20px;
 }
 
 /* Sponsors Section (Partneři) - STATICKÝ GRID */
@@ -125,6 +125,19 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     padding: 14px 16px;
     flex-direction: row !important; 
 }
+.level-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.level-info p {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+}
+
 
 
 /* === SEKCE PODPOROVATELŮ - STATICKÝ GRID === */
