@@ -191,44 +191,88 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     .partner-logo-placeholder { order: 1; justify-content: center; margin-bottom: 0; min-width: 100%; }
 }
 /* =========================
-   VIDEO SEKCE
+   VIDEO SEKCE - OPRAVENO
 ========================= */
 
-.videos-layout{
+.videos-section {
+  background-color: var(--light-bg);
+  padding: 80px 0;
+}
+
+.videos-section .videos-layout {
   display: grid !important;
   grid-template-columns: 2fr 1.3fr !important;
-  gap: 40px;
-  align-items: start;
+  grid-template-rows: auto auto !important;
+  gap: 40px !important;
+  align-items: start !important;
 }
 
-/* videa vlevo */
-.video-main{ grid-column: 1 !important; grid-row: 1 !important; }
-.video-secondary{
-  grid-column: 1 !important;
-  grid-row: 2 !important;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+/* Videa vlevo - horní řádek */
+.videos-section .video-main {
+  grid-column: 1 / 2 !important;
+  grid-row: 1 / 2 !important;
 }
 
-/* flipbook vpravo přes oba řádky */
-.flipbook-wrapper{
-  grid-column: 2 !important;
-  grid-row: 1 / span 2 !important;
-  min-height: 800px;
+/* Videa vlevo - dolní řádek */
+.videos-section .video-secondary {
+  grid-column: 1 / 2 !important;
+  grid-row: 2 / 3 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 30px !important;
+}
+
+/* Flipbook vpravo - přes oba řádky */
+.videos-section .flipbook-wrapper {
+  grid-column: 2 / 3 !important;
+  grid-row: 1 / 3 !important;
+  min-height: 800px !important;
   border-radius: 18px;
   overflow: hidden;
   background: #000;
 }
 
-.flipbook-wrapper iframe{
+.videos-section .flipbook-wrapper iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-/* mobil */
-@media (max-width: 900px){
-  .videos-layout{ grid-template-columns: 1fr !important; }
-  .flipbook-wrapper{ grid-column: 1 !important; grid-row: auto !important; min-height: 60vh; }
+/* Video wrapper styling */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mobilní verze */
+@media (max-width: 900px) {
+  .videos-section .videos-layout {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  
+  .videos-section .video-main,
+  .videos-section .video-secondary,
+  .videos-section .flipbook-wrapper {
+    grid-column: 1 / 2 !important;
+    grid-row: auto !important;
+  }
+  
+  .videos-section .flipbook-wrapper {
+    min-height: 60vh !important;
+  }
 }
