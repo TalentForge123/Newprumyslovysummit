@@ -197,79 +197,31 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
   text-align: center;
 }
 
-.videos-layout{
+.videos-layout {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: 2fr 1.3fr; /* videa | flipbook */
   gap: 40px;
-  align-items: start;
-  margin-top: 40px;
+  align-items: stretch;
 }
 
-.video-secondary{
+/* LEVÁ STRANA – VIDEA */
+.videos-left {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.video-wrapper{
+/* PRAVÁ STRANA – FLIPBOOK */
+.flipbook-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;        /* modernější než padding-top hack */
-  border-radius: 18px;
-  overflow: hidden;
+  min-height: 100%;
   background: #000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-}
-
-.video-wrapper iframe{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-@media (max-width: 900px){
-  .videos-layout{
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); /* bylo 2fr / 1fr */
-  gap: 28px;
-  align-items: start;
-}
-    /* 2 sloupce: vlevo videa, vpravo flipbook */
-.media-grid{
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 40px;
-  align-items: start;
-  margin-top: 40px;
-}
-
-/* původní videos-layout teď řeší jen rozložení videí uvnitř levého sloupce */
-.videos-layout{
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 30px;
-  align-items: start;
-}
-
-.flipbook-card{
   border-radius: 18px;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
-/* flipbook výška – ať není “placatý” */
-.flipbook-embed{
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: 140%;          /* uprav dle potřeby: 120–160% */
-  min-height: 520px;          /* jistota minimální výšky */
-}
-
-.flipbook-embed iframe{
+.flipbook-wrapper iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -277,14 +229,13 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
   border: 0;
 }
 
-/* Mobil: vše pod sebe */
-@media (max-width: 900px){
-  .media-grid{
+/* MOBIL – POD SEBOU */
+@media (max-width: 900px) {
+  .videos-layout {
     grid-template-columns: 1fr;
   }
-  .videos-layout{
-    grid-template-columns: 1fr;
+
+  .flipbook-wrapper {
+    min-height: 60vh;
   }
 }
-
-
