@@ -239,3 +239,57 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     min-height: 60vh;
   }
 }
+/* Layout: vlevo videa (2 bloky pod sebou), vpravo flipbook přes celou výšku */
+.videos-layout{
+  display: grid !important;
+  grid-template-columns: 2fr 1.3fr !important;
+  gap: 40px;
+  align-items: start;
+}
+
+/* video bloky MUSÍ být v levém sloupci */
+.video-main{
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.video-secondary{
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* flipbook MUSÍ být v pravém sloupci a přes oba řádky */
+.flipbook-wrapper{
+  grid-column: 2 !important;
+  grid-row: 1 / span 2 !important;
+
+  position: relative;
+  width: 100%;
+  min-height: 720px;      /* aby nebyl “mrňavej” */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+}
+
+.flipbook-wrapper iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mobil: pod sebe */
+@media (max-width: 900px){
+  .videos-layout{
+    grid-template-columns: 1fr !important;
+  }
+  .flipbook-wrapper{
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    min-height: 60vh;
+  }
+}
