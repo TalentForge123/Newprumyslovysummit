@@ -268,7 +268,7 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 
   position: relative;
   width: 100%;
-  min-height: 720px;      /* aby nebyl “mrňavej” */
+  min-height: 900px;      /* aby nebyl “mrňavej” */
   border-radius: 18px;
   overflow: hidden;
   background: #000;
