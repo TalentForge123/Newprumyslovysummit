@@ -257,13 +257,6 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
   height: 100%;
   border: 0;
 }
-/* Kontejner pro rozložení 2 sloupců */
-.videos-layout {
-    display: grid !important;
-    grid-template-columns: 1.5fr 1fr !important; /* Levý sloupec širší */
-    gap: 30px;
-    align-items: start;
-}
 
 /* Levý sloupec s videi nad sebou */
 .videos-left-column {
