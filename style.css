@@ -191,66 +191,93 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
     .partner-logo-placeholder { order: 1; justify-content: center; margin-bottom: 0; min-width: 100%; }
 }
 /* =========================
-   VIDEO SEKCE – VELKÁ VIDEA POD SEBOU
+   VIDEO SEKCE – VELKÁ VIDEA
 ========================= */
 
-.videos-layout {
-  display: block !important; /* žádný grid */
+.videos-section {
+  background-color: #f5f5f5;
+  padding: 80px 0;
 }
 
-/* Sloupec s videi */
-.videos-left-column {
-  max-width: 1400px;        /* ZVÝŠENO z 1000px na 1400px – videa budou větší */
+.videos-section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.videos-layout {
+  max-width: 1400px;  /* ZVĚTŠENÁ ŠÍŘKA pro větší videa */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding: 0 20px;
 }
 
-/* Každé video */
+/* Hlavní video */
+.video-main {
+  width: 100%;
+}
+
+/* Všechny video wrappery */
 .video-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;     /* moderní a stabilní */
-  border-radius: 16px;
+  padding-bottom: 56.25%; /* Poměr 16:9 */
+  height: 0;
   overflow: hidden;
+  border-radius: 16px;
   background: #000;
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-/* iframe */
+/* iframe uvnitř wrapperu */
 .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-/* Sekundární videa – taky POD SEBOU */
+/* Sekundární videa */
 .video-secondary {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  width: 100%;
+}
+
+/* Flipbook wrapper */
+.flipbook-wrapper {
+  width: 100%;
+  height: 600px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  margin-top: 40px;
+}
+
+.flipbook-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Mobilní verze */
 @media (max-width: 900px) {
-  .videos-section .videos-layout {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto !important;
-  }
-  
-  .videos-section .video-main,
-  .videos-section .video-secondary,
-  .videos-section .flipbook-wrapper {
-    grid-column: 1 / 2 !important;
-    grid-row: auto !important;
-  }
-  
-  .videos-section .flipbook-wrapper {
-    min-height: 60vh !important;
-  }
-  
-  .videos-left-column {
+  .videos-layout {
     max-width: 100%;
+    padding: 0 15px;
+  }
+  
+  .flipbook-wrapper {
+    height: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flipbook-wrapper {
+    height: 400px;
   }
 }
