@@ -200,7 +200,7 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
 
 /* Sloupec s videi */
 .videos-left-column {
-  max-width: 1000px;        /* klíč – videa budou větší */
+  max-width: 1400px;        /* ZVÝŠENO z 1000px na 1400px – videa budou větší */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -232,20 +232,6 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
   gap: 40px;
 }
 
-
-/* Mobilní zobrazení - vše pod sebou */
-@media (max-width: 900px) {
-    .videos-layout {
-        grid-template-columns: 1fr !important;
-    }
-    .video-secondary {
-        grid-template-columns: 1fr;
-    }
-    .flipbook-wrapper {
-        height: 500px;
-    }
-}
-
 /* Mobilní verze */
 @media (max-width: 900px) {
   .videos-section .videos-layout {
@@ -262,5 +248,9 @@ header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; backgroun
   
   .videos-section .flipbook-wrapper {
     min-height: 60vh !important;
+  }
+  
+  .videos-left-column {
+    max-width: 100%;
   }
 }
